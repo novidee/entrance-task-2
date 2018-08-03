@@ -15,7 +15,7 @@ const server = require(`browser-sync`).create();
 const run = require(`run-sequence`);
 
 const SOURCE_PATH = `source`;
-const BUILD_PATH = `build`;
+const BUILD_PATH = `docs`;
 
 gulp.task(`build`, () => {
   return run(
