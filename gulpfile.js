@@ -15,11 +15,11 @@ const server = require(`browser-sync`).create();
 const run = require(`run-sequence`);
 
 const SOURCE_PATH = `source`;
-const BUILD_PATH = `docs`;
+const BUILD_PATH = `.`;
 
 gulp.task(`build`, () => {
   return run(
-    `clean`,
+    // `clean`,
     `images`,
     `templates`,
     `styles`,
