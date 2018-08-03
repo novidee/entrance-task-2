@@ -1,1 +1,43 @@
-info
+{% set devices = [{
+  icon: "images/temperature.svg",
+  name: "Philips Cooler",
+  status: "Начнет охлаждать в 16:30"
+}, {
+  icon: "images/sun.svg",
+  name: "Xiaomi Yeelight LED Smart Bulb",
+  status: "Включится в 17:00"
+}, {
+  icon: "images/sun-colored.svg",
+  name: "Philips Cooler",
+  status: "Начнет охлаждать в 16:30"
+}] %}
+
+<section class="info">
+  <h2 class="info__title">Главное</h2>
+  <div class="info__card">
+    <div class="info__content">
+      <b class="info__greeting">Привет, Геннадий!</b>
+      <p class="info__status-message">Двери и окна закрыты, сигнализация включена</p>
+      <div class="info__temperature temperature-info">
+        <div class="temperature-info__item">
+          <span class="temperature-info__caption">Дома</span>
+          <b class="temperature-info__value">+23</b>
+        </div>
+        <div class="temperature-info__item">
+          <span class="temperature-info__caption">За окном</span>
+          <b class="temperature-info__value">+19</b>
+          <img class="temperature-info__icon" src="images/cloud-drizzle.svg" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="info__devices">
+      <ul class="info__devices-list">
+        {% for item in devices %}
+          <li class="info__devices-item">
+            {% include "content-card.twig" with {item, class: "content-card--device"} %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>

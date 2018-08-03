@@ -1,0 +1,9 @@
+<ul class="tabs">
+  {% for tab in tabs %}
+    <li class="tabs__item">
+      <button class="tabs__button {{ tab.isActive ? "tabs__button--active" : "" }}">
+        {{ tab.text }}
+      </button>
+    </li>
+  {% endfor %}
+</ul>

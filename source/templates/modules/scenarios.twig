@@ -1,1 +1,28 @@
-scenarios
+{% set scenarios = [{
+  icon: "images/sun-colored.svg",
+  name: "Выключить весь свет в доме и во дворе",
+}, {
+  icon: "images/scheduled.svg",
+  name: "Я ухожу",
+}, {
+  icon: "images/sun-colored.svg",
+  name: "Включить свет в коридоре",
+}, {
+  icon: "images/temperature-colored.svg",
+  name: "Набрать горячую ванну",
+  status: "Начнётся в 18:00"
+}, {
+  icon: "images/temperature-colored.svg",
+  name: "Сделать пол тёплым во всей квартире",
+}] %}
+
+<section class="scenarios">
+  <h2 class="scenarios__title">Избранные сценарии</h2>
+  <ul class="scenarios__list">
+    {% for item in scenarios %}
+      <li class="scenarios__item">
+        {% include "content-card.twig" with {item, class: "content-card--scenario"} %}
+      </li>
+    {% endfor %}
+  </ul>
+</section>

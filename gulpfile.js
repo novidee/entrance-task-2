@@ -89,13 +89,7 @@ gulp.task(`images`, () => {
     .pipe(imagemin([
       imagemin.optipng({ optimizationLevel: 3 }),
       imagemin.jpegtran({ progressive: true }),
-      imagemin.svgo({
-        plugins: [{
-          cleanupNumericValues: {
-            floatPrecision: 0
-          }
-        }]
-      })
+      imagemin.svgo()
     ]))
     .pipe(gulp.dest(`${BUILD_PATH}/images`));
 });

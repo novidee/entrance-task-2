@@ -1,1 +1,54 @@
-devices
+{% set tabs = [{
+  text: "Все",
+  isActive: true
+}, {
+  text: "Кухня"
+}, {
+  text: "Зал"
+}, {
+  text: "Лампочки"
+}, {
+  text: "Камеры"
+}] %}
+
+{% set devices = [{
+  icon: "images/sun-colored.svg",
+  name: "Xiaomi Yeelight LED Smart Bulb",
+  status: "Включено"
+}, {
+  icon: "images/sun.svg",
+  name: "D-Link Omna 180 Cam",
+  status: "Включится в 17:00"
+}, {
+  icon: "images/temperature.svg",
+  name: "Elgato Eve Degree Connected",
+  status: "Выключено до 17:00"
+}, {
+  icon: "images/sun.svg",
+  name: "LIFX Mini Day & Dusk A60 E27",
+  status: "Включится в 17:00"
+}, {
+  icon: "images/sun-colored.svg",
+  name: "Xiaomi Mi Air Purifier 2S",
+  status: "Включено"
+}, {
+  icon: "images/sun.svg",
+  name: "Philips Zhirui",
+  status: "Выключено"
+}, {
+  icon: "images/sun-colored.svg",
+  name: "Elgato Eve Degree Connected",
+  status: "Выключено до 17:00"
+}] %}
+
+<section class="devices">
+  <h2 class="devices__title">Избранные устройства</h2>
+  {% include "tabs.twig" with {tabs} %}
+  <ul class="devices__list">
+    {% for item in devices %}
+      <li class="devices__item">
+        {% include "content-card.twig" with {item, class: "content-card--device"} %}
+      </li>
+    {% endfor %}
+  </ul>
+</section>
