@@ -6,7 +6,7 @@
 .filter__list {
   .reset-list();
 
-  .phone-only({
+  .tablet-down({
     display: none;
     position: absolute;
     right: 0;
@@ -24,7 +24,7 @@
   width: 100%;
   text-align: left;
 
-  .phone-only({
+  .tablet-down({
     padding: 4px 20px;
   });
 
@@ -33,7 +33,7 @@
   }
 
   &--active {
-    .phone-only({
+    .tablet-down({
       background: fade(@yellow, 50%);
     });
   }

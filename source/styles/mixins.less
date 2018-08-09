@@ -20,7 +20,19 @@
   }
 }
 
-.phone-only(@rules) {
+.small-tablet-down(@rules) {
+  @media (max-width: @small-tablet-width - 1px) {
+    @rules();
+  }
+}
+
+.small-tablet-up(@rules) {
+  @media (min-width: @small-tablet-width) {
+    @rules();
+  }
+}
+
+.tablet-down(@rules) {
   @media (max-width: @tablet-width - 1px) {
     @rules();
   }
