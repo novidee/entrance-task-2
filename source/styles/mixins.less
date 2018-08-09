@@ -44,6 +44,12 @@
   }
 }
 
+.desktop-hd-up(@rules) {
+  @media (min-width: @desktop-hd-width) {
+    @rules();
+  }
+}
+
 .desktop-up(@rules) {
   @media (min-width: @desktop-width) {
     @rules();
