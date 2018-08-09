@@ -13,7 +13,7 @@
 }] %}
 
 <section class="info">
-  <h2 class="info__title">Главное</h2>
+  <h2 class="info__title section-title">Главное</h2>
   <div class="info__card">
     <div class="info__content">
       <b class="info__greeting">Привет, Геннадий!</b>
@@ -21,12 +21,16 @@
       <div class="info__temperature temperature-info">
         <div class="temperature-info__item">
           <span class="temperature-info__caption">Дома</span>
-          <b class="temperature-info__value">+23</b>
+          <div class="temperature-info__content">
+            <span class="temperature-info__value">+23</span>
+          </div>
         </div>
         <div class="temperature-info__item">
           <span class="temperature-info__caption">За окном</span>
-          <b class="temperature-info__value">+19</b>
-          <img class="temperature-info__icon" src="images/cloud-drizzle.svg" alt="" />
+          <div class="temperature-info__content">
+            <span class="temperature-info__value">+19</span>
+            <img class="temperature-info__icon" src="images/cloud-drizzle.svg" width="20" height="20" alt="" />
+          </div>
         </div>
       </div>
     </div>
@@ -34,7 +38,7 @@
       <ul class="info__devices-list">
         {% for item in devices %}
           <li class="info__devices-item">
-            {% include "content-card.twig" with {item, class: "content-card--device"} %}
+            {% include "card.twig" with {item, class: "card--device"} %}
           </li>
         {% endfor %}
       </ul>

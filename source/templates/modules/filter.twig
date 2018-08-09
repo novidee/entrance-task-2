@@ -1,0 +1,12 @@
+<div class="filter">
+  <span class="filter__current" tabindex="0">Все</span>
+  <ul class="filter__list">
+    {% for filter in filters %}
+      <li class="filter__item">
+        <button class="filter__button {{ filter.isActive ? "filter__button--active" : "" }}">
+          {{ filter.text }}
+        </button>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

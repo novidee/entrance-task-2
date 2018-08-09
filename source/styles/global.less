@@ -9,10 +9,14 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   margin: 0;
   font-family: @default-font;
   font-size: 15px;
   line-height: 1.6;
+  color: @gray-dark;
 }
 
 img {
@@ -24,4 +28,10 @@ button {
   border: 0;
   background: transparent;
   cursor: pointer;
+  font: inherit;
+}
+
+select {
+  font: inherit;
+  color: inherit;
 }

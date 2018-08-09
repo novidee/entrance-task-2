@@ -1,0 +1,61 @@
+.filter {
+  position: relative;
+  margin-left: auto;
+}
+
+.filter__list {
+  .reset-list();
+
+  .phone-only({
+    display: none;
+    position: absolute;
+    right: 0;
+    padding: 10px 0;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  });
+
+  &--opened {
+    display: block;
+  }
+}
+
+.filter__button {
+  width: 100%;
+  text-align: left;
+
+  .phone-only({
+    padding: 4px 20px;
+  });
+
+  &:hover {
+    background: @gray-light;
+  }
+
+  &--active {
+    .phone-only({
+      background: fade(@yellow, 50%);
+    });
+  }
+}
+
+.filter__current {
+  display: inline-block;
+  padding: 4px 10px;
+  vertical-align: middle;
+  background: @yellow;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 4px;
+    background: url(../images/arrow-down.svg) no-repeat;
+    vertical-align: -2px;
+  }
+}

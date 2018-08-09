@@ -1,12 +1,14 @@
 <main class="dashboard">
-  <h1 class="visually-hidden">Панель приборов</h1>
-  <div class="row">
-    <div class="col-md-6">
-      {% include "./info.twig" %}
+  <div class="container">
+    <h1 class="visually-hidden">Панель приборов</h1>
+    <div class="row">
+      <div class="col-md-6">
+        {% include "./info.twig" %}
+      </div>
+      <div class="col-md-6">
+        {% include "./scenarios.twig" %}
+      </div>
     </div>
-    <div class="col-md-6">
-      {% include "./scenarios.twig" %}
-    </div>
+    {% include "./devices.twig" %}
   </div>
-  {% include "./devices.twig" %}
 </main>

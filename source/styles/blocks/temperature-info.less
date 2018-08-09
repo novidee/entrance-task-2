@@ -1,0 +1,25 @@
+.temperature-info {
+  display: flex;
+}
+
+.temperature-info__caption {
+  font-size: 12px;
+  color: @gray;
+
+  .tablet-up({
+    font-size: 14px;
+  });
+}
+
+.temperature-info__value {
+  font-size: 24px;
+  font-weight: bold;
+
+  .tablet-up({
+    font-size: 30px;
+  });
+
+  .desktop-up({
+    font-size: 36px;
+  });
+}

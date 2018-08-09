@@ -10,6 +10,16 @@
   }
 }
 
+.right-spacer(@width) {
+  &::after {
+    content: "";
+    flex-shrink: 0;
+    display: block;
+    width: @width;
+    background: transparent;
+  }
+}
+
 .phone-only(@rules) {
   @media (max-width: @tablet-width - 1px) {
     @rules();

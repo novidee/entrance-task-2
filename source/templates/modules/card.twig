@@ -1,0 +1,7 @@
+<div class="card {{ class }}">
+  <img class="card__icon" src="{{ item.icon }}" width="24" height="24" alt="" />
+  <p class="card__name">{{ item.name }}</p>
+  {% if item.status %}
+    <span class="card__status">{{ item.status }}</span>
+  {% endif %}
+</div>

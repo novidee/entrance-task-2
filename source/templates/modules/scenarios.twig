@@ -17,11 +17,11 @@
 }] %}
 
 <section class="scenarios">
-  <h2 class="scenarios__title">Избранные сценарии</h2>
+  <h2 class="scenarios__title section-title">Избранные сценарии</h2>
   <ul class="scenarios__list">
     {% for item in scenarios %}
       <li class="scenarios__item">
-        {% include "content-card.twig" with {item, class: "content-card--scenario"} %}
+        {% include "card.twig" with {item, class: "card--scenario"} %}
       </li>
     {% endfor %}
   </ul>
