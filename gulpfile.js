@@ -11,15 +11,17 @@ const imagemin = require(`gulp-imagemin`);
 const autoprefixer = require(`autoprefixer`);
 const del = require(`del`);
 
+const NpmImportPlugin = require(`less-plugin-npm-import`);
+
 const server = require(`browser-sync`).create();
 const run = require(`run-sequence`);
 
 const SOURCE_PATH = `source`;
-const BUILD_PATH = `.`;
+const BUILD_PATH = `build`;
 
 gulp.task(`build`, () => {
   return run(
-    // `clean`,
+    `clean`,
     `images`,
     `templates`,
     `styles`,
@@ -56,7 +58,9 @@ gulp.task(`styles`, () => {
   return gulp
     .src(`${SOURCE_PATH}/styles/style.less`)
     .pipe(plumber())
-    .pipe(less())
+    .pipe(less({
+        plugins: [new NpmImportPlugin({prefix: '~'})]
+    }))
     .pipe(postcss([
       autoprefixer()
     ]))

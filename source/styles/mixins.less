@@ -1,3 +1,21 @@
+.reset-list() {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.disable-empty-links() {
+  &:not([href]) {
+    pointer-events: none;
+  }
+}
+
+.phone-only(@rules) {
+  @media (max-width: @tablet-width - 1px) {
+    @rules();
+  }
+}
+
 .tablet-up(@rules) {
   @media (min-width: @tablet-width) {
     @rules();

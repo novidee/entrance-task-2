@@ -1,3 +1,14 @@
+.container {
+  flex-grow: 1;
+  max-width: @desktop-width;
+  margin: 0 auto;
+  padding: 0 30px;
+
+  .tablet-up({
+    padding: 0 40px;
+  });
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;
