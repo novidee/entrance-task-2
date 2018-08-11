@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Яндекс Дом</title>
+  <link rel="stylesheet" href="styles/style.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <header class="header">
+  <div class="container">
+    <nav class="main-nav">
+      <a class="main-nav__logo">
+        <img class="main-nav__logo-image" src="images/logo.svg" alt="Яндекс дом лого" />
+      </a>
+      <button class="main-nav__toggler" aria-label="Переключить меню" type="button"></button>
+      <ul class="main-nav__menu menu">
+        <li class="menu__item">
+          <a class="menu__link menu__link--active link">Сводка</a>
+        </li>
+        <li class="menu__item">
+          <a class="menu__link link" href="#">Устройства</a>
+        </li>
+        <li class="menu__item">
+          <a class="menu__link link" href="#">Сценарии</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+  <main class="dashboard">
+  <div class="container">
+    <h1 class="visually-hidden">Панель приборов</h1>
+    <div class="dashboard__container">
+      <div class="dashboard__info-wrapper">
+        
+<section class="info">
+  <h2 class="info__title section-title">Главное</h2>
+  <div class="info__card">
+    <div class="info__content">
+      <b class="info__greeting">Привет, Геннадий!</b>
+      <p class="info__status-message">Двери и окна закрыты, сигнализация включена</p>
+      <div class="info__temperature temperature-info">
+        <div class="temperature-info__item">
+          <span class="temperature-info__caption">Дома</span>
+          <div class="temperature-info__content">
+            <span class="temperature-info__value">+23</span>
+          </div>
+        </div>
+        <div class="temperature-info__item">
+          <span class="temperature-info__caption">За окном</span>
+          <div class="temperature-info__content">
+            <span class="temperature-info__value">+19</span>
+            <img class="temperature-info__icon" src="images/cloud-drizzle.svg" width="20" height="20" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="info__devices">
+      <h3 class="visually-hidden">Ближайшие сценарии</h3>
+      <ul class="info__devices-list">
+                  <li class="info__devices-item">
+            <div class="card card--device">
+  <img class="card__icon" src="images/temperature.svg" width="24" height="24" alt="" />
+  <p class="card__name">Philips Cooler</p>
+      <span class="card__status">Начнет охлаждать в 16:30</span>
+  </div>
+          </li>
+                  <li class="info__devices-item">
+            <div class="card card--device">
+  <img class="card__icon" src="images/sun.svg" width="24" height="24" alt="" />
+  <p class="card__name">Xiaomi Yeelight LED Smart Bulb</p>
+      <span class="card__status">Включится в 17:00</span>
+  </div>
+          </li>
+                  <li class="info__devices-item">
+            <div class="card card--device">
+  <img class="card__icon" src="images/sun-colored.svg" width="24" height="24" alt="" />
+  <p class="card__name">Philips Cooler</p>
+      <span class="card__status">Начнет охлаждать в 17:30</span>
+  </div>
+          </li>
+                  <li class="info__devices-item">
+            <div class="card card--device">
+  <img class="card__icon" src="images/sun-colored.svg" width="24" height="24" alt="" />
+  <p class="card__name">Xiaomi Smart</p>
+      <span class="card__status">Начнет охлаждать в 18:30</span>
+  </div>
+          </li>
+              </ul>
+    </div>
+  </div>
+</section>
+      </div>
+      <div class="dashboard__scenarios-wrapper">
+        
+<section class="scenarios">
+  <h2 class="scenarios__title section-title">Избранные сценарии</h2>
+  <ul class="scenarios__list">
+          <li class="scenarios__item">
+        <div class="card card--scenario">
+  <img class="card__icon" src="images/sun-colored.svg" width="24" height="24" alt="" />
+  <p class="card__name">Выключить весь свет в доме и во дворе</p>
+  </div>
+      </li>
+          <li class="scenarios__item">
+        <div class="card card--scenario">
+  <img class="card__icon" src="images/scheduled.svg" width="24" height="24" alt="" />
+  <p class="card__name">Я ухожу</p>
+  </div>
+      </li>
+          <li class="scenarios__item">
+        <div class="card card--scenario">
+  <img class="card__icon" src="images/sun-colored.svg" width="24" height="24" alt="" />
+  <p class="card__name">Включить свет в коридоре</p>
+  </div>
+      </li>
+          <li class="scenarios__item">
+        <div class="card card--scenario">
+  <img class="card__icon" src="images/temperature-colored.svg" width="24" height="24" alt="" />
+  <p class="card__name">Набрать горячую ванну</p>
+      <span class="card__status">Начнётся в 18:00</span>
+  </div>
+      </li>
+          <li class="scenarios__item">
+        <div class="card card--scenario">
+  <img class="card__icon" src="images/temperature-colored.svg" width="24" height="24" alt="" />
+  <p class="card__name">Сделать пол тёплым во всей квартире</p>
+  </div>
+      </li>
+          <li class="scenarios__item">
+        <div class="card card--scenario">
+  <img class="card__icon" src="images/scheduled.svg" width="24" height="24" alt="" />
+  <p class="card__name">Я ухожу</p>
+  </div>
+      </li>
+          <li class="scenarios__item">
+        <div class="card card--scenario">
+  <img class="card__icon" src="images/sun-colored.svg" width="24" height="24" alt="" />
+  <p class="card__name">Включить свет в коридоре</p>
+  </div>
+      </li>
+          <li class="scenarios__item">
+        <div class="card card--scenario">
+  <img class="card__icon" src="images/temperature-colored.svg" width="24" height="24" alt="" />
+  <p class="card__name">Набрать горячую ванну</p>
+      <span class="card__status">Начнётся в 18:00</span>
+  </div>
+      </li>
+          <li class="scenarios__item">
+        <div class="card card--scenario">
+  <img class="card__icon" src="images/temperature-colored.svg" width="24" height="24" alt="" />
+  <p class="card__name">Сделать пол тёплым во всей квартире</p>
+  </div>
+      </li>
+          <li class="scenarios__item">
+        <div class="card card--scenario">
+  <img class="card__icon" src="images/temperature-colored.svg" width="24" height="24" alt="" />
+  <p class="card__name">Сделать пол тёплым во всей квартире</p>
+  </div>
+      </li>
+      </ul>
+</section>
+      </div>
+    </div>
+  </div>
+  
+
+<section class="devices">
+  <h2 class="devices__title section-title">Избранные устройства</h2>
+  <div class="filter">
+  <span class="filter__current" tabindex="0">Все</span>
+  <ul class="filter__list">
+          <li class="filter__item">
+        <button class="filter__button filter__button--active">
+          Все
+        </button>
+      </li>
+          <li class="filter__item">
+        <button class="filter__button ">
+          Кухня
+        </button>
+      </li>
+          <li class="filter__item">
+        <button class="filter__button ">
+          Зал
+        </button>
+      </li>
+          <li class="filter__item">
+        <button class="filter__button ">
+          Лампочки
+        </button>
+      </li>
+          <li class="filter__item">
+        <button class="filter__button ">
+          Камеры
+        </button>
+      </li>
+      </ul>
+</div>
+  <div class="devices__list-wrapper">
+    <ul class="devices__list">
+              <li class="devices__item">
+          <div class="card card--device">
+  <img class="card__icon" src="images/sun-colored.svg" width="24" height="24" alt="" />
+  <p class="card__name">Xiaomi Yeelight LED Smart Bulb</p>
+      <span class="card__status">Включено</span>
+  </div>
+        </li>
+              <li class="devices__item">
+          <div class="card card--device">
+  <img class="card__icon" src="images/sun.svg" width="24" height="24" alt="" />
+  <p class="card__name">D-Link Omna 180 Cam</p>
+      <span class="card__status">Включится в 17:00</span>
+  </div>
+        </li>
+              <li class="devices__item">
+          <div class="card card--device">
+  <img class="card__icon" src="images/temperature.svg" width="24" height="24" alt="" />
+  <p class="card__name">Elgato Eve Degree Connected</p>
+      <span class="card__status">Выключено до 17:00</span>
+  </div>
+        </li>
+              <li class="devices__item">
+          <div class="card card--device">
+  <img class="card__icon" src="images/sun.svg" width="24" height="24" alt="" />
+  <p class="card__name">LIFX Mini Day & Dusk A60 E27</p>
+      <span class="card__status">Включится в 17:00</span>
+  </div>
+        </li>
+              <li class="devices__item">
+          <div class="card card--device">
+  <img class="card__icon" src="images/sun-colored.svg" width="24" height="24" alt="" />
+  <p class="card__name">Xiaomi Mi Air Purifier 2S</p>
+      <span class="card__status">Включено</span>
+  </div>
+        </li>
+              <li class="devices__item">
+          <div class="card card--device">
+  <img class="card__icon" src="images/sun.svg" width="24" height="24" alt="" />
+  <p class="card__name">Philips Zhirui</p>
+      <span class="card__status">Выключено</span>
+  </div>
+        </li>
+              <li class="devices__item">
+          <div class="card card--device">
+  <img class="card__icon" src="images/sun-colored.svg" width="24" height="24" alt="" />
+  <p class="card__name">Elgato Eve Degree Connected</p>
+      <span class="card__status">Выключено до 17:00</span>
+  </div>
+        </li>
+          </ul>
+  </div>
+</section>
+</main>
+  <footer class="footer">
+  <div class="footer__container container">
+    <ul class="secondary-nav">
+      <li class="secondary-nav__item">
+        <a class="secondary-nav__link link" href="#">Помощь</a>
+      </li>
+      <li class="secondary-nav__item">
+        <a class="secondary-nav__link link" href="#">Обратная связь</a>
+      </li>
+      <li class="secondary-nav__item">
+        <a class="secondary-nav__link link" href="#">Разработчикам</a>
+      </li>
+      <li class="secondary-nav__item">
+        <a class="secondary-nav__link link" href="#">Условия использования</a>
+      </li>
+    </ul>
+    <div class="copyright">
+      © 2018
+      <a class="link" href="https://yandex.ru">ООО «Яндекс»</a>
+    </div>
+  </div>
+</footer>
+  <script src="scripts/libs/tiny-slider.js"></script>
+  <script src="scripts/script.min.js"></script>
+</body>
+</html>
