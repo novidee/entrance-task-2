@@ -2,19 +2,33 @@
   position: relative;
 
   .tns-controls {
-    top: 0;
+    top: -20px;
     right: 0;
   }
 
   .tns-outer {
+    transform: translate3d(0, -5px, 0);
+
     .tablet-down({
       margin: 0 -20px;
+    });
+
+    .tablet-up({
+      transform: translate3d(5px, -5px, 0);
     });
   }
 
   .tns-ovh {
     .tablet-down({
       padding: 0 20px;
+    });
+  }
+
+  .tns-inner {
+    padding: 5px 0;
+
+    .tablet-up({
+      padding: 5px;
     });
   }
 }
