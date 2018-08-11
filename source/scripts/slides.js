@@ -1,3 +1,9 @@
+const MEDIA_AREA = {
+  tabletDown: "tablet-down",
+  tabletUp: "tablet-up",
+  desktopHDUp: "desktop-hd-up"
+};
+
 class ScenariosSlider {
   constructor() {
     this.arrowPrev = "<img class='tns-controls-prev' src='images/arrow-left.svg' alt=''/>";
@@ -10,6 +16,7 @@ class ScenariosSlider {
       nav: false,
       controlsText: [this.arrowPrev, this.arrowNext],
       mouseDrag: true,
+      loop: false,
       slideBy: "page",
       speed: 600,
       responsive: {
@@ -18,19 +25,20 @@ class ScenariosSlider {
         },
         768: {
           controls: true,
+          gutter: 0,
           items: 1,
-          fixedWidth: 415
+          fixedWidth: 429
         },
         1280: {
-          fixedWidth: 630
+          fixedWidth: 644
         }
       }
     };
 
     this.CARDS_PER_SLIDE = {
-      "tablet-down": 1,
-      "tablet-up": 4,
-      "desktop-hd-up": 9
+      [MEDIA_AREA.tabletDown]: 1,
+      [MEDIA_AREA.tabletUp]: 6,
+      [MEDIA_AREA.desktopHDUp]: 9
     };
 
     this.currentCardsPerSlide = this.getCardsPerSlide();
@@ -68,12 +76,11 @@ class ScenariosSlider {
   }
 
   getCardsPerSlide() {
-    const mediaQuery = getComputedStyle(document.querySelector(':root')).getPropertyValue('--media').trim();
-    return this.CARDS_PER_SLIDE[mediaQuery];
+    const mediaArea = getCurrentMediaArea();
+    return this.CARDS_PER_SLIDE[mediaArea];
   }
 
   prepareMarkup(cardsPerSlide) {
-    console.log('cardsPerSlide', cardsPerSlide);
     const list = document.querySelector(".scenarios__list");
     const workedItems = this.items.slice();
 
@@ -97,23 +104,62 @@ class ScenariosSlider {
   }
 }
 
-const dd = new ScenariosSlider();
+const scenariosSlider = new ScenariosSlider();
+scenariosSlider.create();
 
-dd.create();
+class InfoDevicesSlider {
+  constructor() {
+    this.options = {
+      horizontal: {
+        container: ".info__devices-list",
+        controls: false,
+        edgePadding: 20,
+        fixedWidth: 220,
+        loop: false,
+        nav: false,
+        mouseDrag: true
+      },
+      vertical: {
+        container: ".info__devices-list",
+        controls: false,
+        items: 2,
+        gutter: 15,
+        axis: "vertical",
+        edgePadding: 20,
+        loop: false,
+        nav: false,
+        mouseDrag: true
+      }
+    };
 
-const slider2 = tns({
-  container: '.info__devices-list',
-  axis: 'vertical',
-  controls: false,
-  items: 2,
-  "gutter": 10,
-  // fixedWidth: 200,
-  nav: false,
-  mouseDrag: true,
-  // slideBy: 2,
-  // autoHeight: true,
-  // "swipeAngle": false,
-});
+    this.currentMediaArea = getCurrentMediaArea();
+  }
+
+  build(type) {
+    this.sliderInfo = tns(this.options[type]);
+  }
+
+  destroy() {
+    this.sliderInfo.destroy();
+  }
+
+  rebuild() {
+    const mediaArea = getCurrentMediaArea();
+    if (mediaArea === this.currentMediaArea) return;
+    this.currentMediaArea = mediaArea;
+
+    this.destroy();
+    this.build(mediaArea === MEDIA_AREA.desktopHDUp ? "vertical" : "horizontal");
+  }
+
+  create() {
+    this.build(this.currentMediaArea === MEDIA_AREA.desktopHDUp ? "vertical" : "horizontal");
+    window.addEventListener('resize', debounce(() => this.rebuild(), 50));
+  }
+}
+
+const infoDevicesSlider = new InfoDevicesSlider();
+infoDevicesSlider.create();
 
 function debounce(f, ms) {
 
@@ -131,4 +177,8 @@ function debounce(f, ms) {
 
     timer = setTimeout(onComplete, ms);
   };
+}
+
+function getCurrentMediaArea() {
+  return getComputedStyle(document.querySelector(':root')).getPropertyValue('--media').trim();
 }

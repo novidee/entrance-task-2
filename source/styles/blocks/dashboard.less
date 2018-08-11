@@ -14,20 +14,25 @@
   width: 100%;
 
   .tablet-up({
-    width: 425px;
+    width: 430px;
   });
 
   .desktop-hd-up({
-    width: 640px;
+    width: 645px;
   });
 }
 
 .dashboard__info-wrapper {
-  width: 100%;
+  display: flex;
   flex-grow: 1;
+  width: 100%;
 
   .tablet-up({
-    width: auto;
+    width: calc(100% - 430px);
     padding-right: 16px;
+  });
+
+  .desktop-hd-up({
+    width: calc(100% - 645px);
   });
 }

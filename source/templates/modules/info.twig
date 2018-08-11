@@ -9,7 +9,11 @@
 }, {
   icon: "images/sun-colored.svg",
   name: "Philips Cooler",
-  status: "Начнет охлаждать в 16:30"
+  status: "Начнет охлаждать в 17:30"
+}, {
+  icon: "images/sun-colored.svg",
+  name: "Xiaomi Smart",
+  status: "Начнет охлаждать в 18:30"
 }] %}
 
 <section class="info">
@@ -35,6 +39,7 @@
       </div>
     </div>
     <div class="info__devices">
+      <h3 class="visually-hidden">Ближайшие сценарии</h3>
       <ul class="info__devices-list">
         {% for item in devices %}
           <li class="info__devices-item">

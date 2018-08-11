@@ -1,6 +1,13 @@
+.info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .info__card {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   max-height: 330px;
   padding: 20px 0;
   border-radius: 20px;
@@ -60,39 +67,23 @@
 }
 
 .info__devices {
-  padding: 0 20px;
-  //overflow: auto;
-
-  .desktop-hd-up({
-    padding: 20px 0;
+  .tablet-down({
+    width: 100%;
   });
-}
 
-//.tns-inner {
-//  height: 400px !important;
-//}
+  .tns-inner {
+    height: 100% !important;
+  }
+}
 
 .info__devices-list {
   .reset-list();
-  .right-spacer(20px);
 
-  //display: flex;
-  //min-height: 400px;
-  //
-  //.desktop-hd-up({
-  //  flex-direction: column;
-  //});
+  .desktop-hd-up({
+    height: 100%;
+  });
 }
 
 .info__devices-item {
-  margin-right: 20px;
-
-  &:last-of-type {
-    margin: 0;
-  }
-
-  .desktop-hd-up({
-    margin-right: 0;
-    margin-bottom: 15px;
-  });
+  outline: none;
 }
