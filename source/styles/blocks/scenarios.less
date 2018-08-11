@@ -2,25 +2,25 @@
   position: relative;
 
   .tns-controls {
-    top: -20px;
+    top: 0;
     right: 0;
   }
 
   .tns-outer {
-    transform: translate3d(0, -5px, 0);
-
     .tablet-down({
       margin: 0 -20px;
-    });
-
-    .tablet-up({
-      transform: translate3d(5px, -5px, 0);
     });
   }
 
   .tns-ovh {
+    transform: translate3d(0, -5px, 0);
+
     .tablet-down({
       padding: 0 20px;
+    });
+
+    .tablet-up({
+      transform: translate3d(5px, -5px, 0);
     });
   }
 

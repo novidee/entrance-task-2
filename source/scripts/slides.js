@@ -4,21 +4,24 @@ const MEDIA_AREA = {
   desktopHDUp: "desktop-hd-up"
 };
 
+const DEFAULT_CONFIG = {
+  nav: false,
+  mouseDrag: true,
+  loop: false,
+  speed: 600
+};
+
+const prevArrow = "<img class='tns-controls-prev' src='images/arrow-left.svg' alt=''/>";
+const nextArrow = "<img class='tns-controls-next' src='images/arrow-left.svg' alt=''/>";
+
 class ScenariosSlider {
   constructor() {
-    this.arrowPrev = "<img class='tns-controls-prev' src='images/arrow-left.svg' alt=''/>";
-    this.arrowNext = "<img class='tns-controls-next' src='images/arrow-left.svg' alt=''/>";
-
-    this.options = {
+    this.options = Object.assign({}, DEFAULT_CONFIG, {
       container: ".scenarios__list",
       fixedWidth: 200,
       gutter: 15,
-      nav: false,
-      controlsText: [this.arrowPrev, this.arrowNext],
-      mouseDrag: true,
-      loop: false,
+      controlsText: [prevArrow, nextArrow],
       slideBy: "page",
-      speed: 600,
       responsive: {
         320: {
           controls: false
@@ -33,7 +36,7 @@ class ScenariosSlider {
           fixedWidth: 644
         }
       }
-    };
+    });
 
     this.CARDS_PER_SLIDE = {
       [MEDIA_AREA.tabletDown]: 1,
@@ -109,27 +112,23 @@ scenariosSlider.create();
 
 class InfoDevicesSlider {
   constructor() {
+    const container = ".info__devices-list";
+
     this.options = {
-      horizontal: {
-        container: ".info__devices-list",
+      horizontal: Object.assign({}, DEFAULT_CONFIG, {
+        container,
         controls: false,
         edgePadding: 20,
-        fixedWidth: 220,
-        loop: false,
-        nav: false,
-        mouseDrag: true
-      },
-      vertical: {
-        container: ".info__devices-list",
+        fixedWidth: 220
+      }),
+      vertical: Object.assign({}, DEFAULT_CONFIG, {
+        container,
         controls: false,
         items: 2,
         gutter: 15,
         axis: "vertical",
-        edgePadding: 20,
-        loop: false,
-        nav: false,
-        mouseDrag: true
-      }
+        edgePadding: 20
+      })
     };
 
     this.currentMediaArea = getCurrentMediaArea();
@@ -160,6 +159,33 @@ class InfoDevicesSlider {
 
 const infoDevicesSlider = new InfoDevicesSlider();
 infoDevicesSlider.create();
+
+class DevicesSlider {
+  constructor() {
+    this.options = Object.assign({}, DEFAULT_CONFIG, {
+      container: ".devices__list",
+      fixedWidth: 200,
+      gutter: 15,
+      controlsText: [prevArrow, nextArrow],
+      slideBy: "page",
+      responsive: {
+        320: {
+          controls: false
+        },
+        768: {
+          controls: true
+        }
+      }
+    });
+  }
+
+  create() {
+    this.sliderInfo = tns(this.options);
+  }
+}
+
+const devicesSlider = new DevicesSlider();
+devicesSlider.create();
 
 function debounce(f, ms) {
 

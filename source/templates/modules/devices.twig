@@ -44,11 +44,13 @@
 <section class="devices">
   <h2 class="devices__title section-title">Избранные устройства</h2>
   {% include "filter.twig" with {filters} %}
-  <ul class="devices__list">
-    {% for item in devices %}
-      <li class="devices__item">
-        {% include "card.twig" with {item, class: "card--device"} %}
-      </li>
-    {% endfor %}
-  </ul>
+  <div class="devices__list-wrapper">
+    <ul class="devices__list">
+      {% for item in devices %}
+        <li class="devices__item">
+          {% include "card.twig" with {item, class: "card--device"} %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
 </section>
