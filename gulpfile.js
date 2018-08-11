@@ -6,7 +6,7 @@ const postcss = require(`gulp-postcss`);
 const rename = require(`gulp-rename`);
 const twig = require(`gulp-twig`);
 const concat = require(`gulp-concat`);
-const uglify = require(`gulp-uglify`);
+const uglify = require(`gulp-uglify-es`).default;
 const imagemin = require(`gulp-imagemin`);
 const autoprefixer = require(`autoprefixer`);
 const del = require(`del`);
@@ -25,7 +25,8 @@ gulp.task(`build`, () => {
     `images`,
     `templates`,
     `styles`,
-    `scripts`
+    `scripts`,
+    `copy`
   );
 });
 
@@ -96,6 +97,14 @@ gulp.task(`images`, () => {
       imagemin.svgo()
     ]))
     .pipe(gulp.dest(`${BUILD_PATH}/images`));
+});
+
+gulp.task(`copy`, () => {
+  return gulp
+    .src(`${SOURCE_PATH}/scripts/libs/*.js`, {
+      base: SOURCE_PATH
+    })
+    .pipe(gulp.dest(BUILD_PATH));
 });
 
 gulp.task(`clean`, () => {

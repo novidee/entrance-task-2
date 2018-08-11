@@ -35,3 +35,15 @@ select {
   font: inherit;
   color: inherit;
 }
+
+:root {
+  --media: tablet-down;
+
+  .tablet-up({
+    --media: tablet-up;
+  });
+
+  .desktop-hd-up({
+    --media: desktop-hd-up;
+  });
+}

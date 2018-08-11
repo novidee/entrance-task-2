@@ -1,3 +1,33 @@
 .dashboard {
   flex-grow: 1;
 }
+
+.dashboard__container {
+  display: flex;
+
+  .tablet-down({
+    flex-wrap: wrap;
+  });
+}
+
+.dashboard__scenarios-wrapper {
+  width: 100%;
+
+  .tablet-up({
+    width: 415px;
+  });
+
+  .desktop-hd-up({
+    width: 630px;
+  });
+}
+
+.dashboard__info-wrapper {
+  width: 100%;
+  flex-grow: 1;
+
+  .tablet-up({
+    width: auto;
+    padding-right: 26px;
+  });
+}

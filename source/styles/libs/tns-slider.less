@@ -1,0 +1,18 @@
+.tns-controls {
+  position: absolute;
+  font-size: 0;
+  outline: none;
+
+  button {
+    outline: none;
+
+    &[disabled] {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.tns-controls-next {
+  transform: scale(-1, 1);
+}
