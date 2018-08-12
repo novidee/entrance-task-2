@@ -7,7 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <header class="header">
+  <div class="layout">
+    <header class="header">
   <div class="container">
     <nav class="main-nav">
       <a class="main-nav__logo">
@@ -28,7 +29,7 @@
     </nav>
   </div>
 </header>
-  <main class="dashboard">
+    <main class="dashboard">
   <div class="container">
     <h1 class="visually-hidden">Панель приборов</h1>
     <div class="dashboard__container">
@@ -60,28 +61,28 @@
       <h3 class="visually-hidden">Ближайшие сценарии</h3>
       <ul class="info__devices-list">
                   <li class="info__devices-item">
-            <div class="card card--device">
+            <div class="card card--device" data-type="heat">
   <img class="card__icon" src="images/temperature.svg" width="24" height="24" alt="" />
   <p class="card__name">Philips Cooler</p>
       <span class="card__status">Начнет охлаждать в 16:30</span>
   </div>
           </li>
                   <li class="info__devices-item">
-            <div class="card card--device">
+            <div class="card card--device" data-type="lighting">
   <img class="card__icon" src="images/sun.svg" width="24" height="24" alt="" />
   <p class="card__name">Xiaomi Yeelight LED Smart Bulb</p>
       <span class="card__status">Включится в 17:00</span>
   </div>
           </li>
                   <li class="info__devices-item">
-            <div class="card card--device">
+            <div class="card card--device" data-type="lighting">
   <img class="card__icon" src="images/sun-colored.svg" width="24" height="24" alt="" />
   <p class="card__name">Philips Cooler</p>
       <span class="card__status">Начнет охлаждать в 17:30</span>
   </div>
           </li>
                   <li class="info__devices-item">
-            <div class="card card--device">
+            <div class="card card--device" data-type="lighting">
   <img class="card__icon" src="images/sun-colored.svg" width="24" height="24" alt="" />
   <p class="card__name">Xiaomi Smart</p>
       <span class="card__status">Начнет охлаждать в 18:30</span>
@@ -98,63 +99,63 @@
   <h2 class="scenarios__title section-title">Избранные сценарии</h2>
   <ul class="scenarios__list">
           <li class="scenarios__item">
-        <div class="card card--scenario">
+        <div class="card card--scenario" data-type="lighting">
   <img class="card__icon" src="images/sun-colored.svg" width="24" height="24" alt="" />
   <p class="card__name">Выключить весь свет в доме и во дворе</p>
   </div>
       </li>
           <li class="scenarios__item">
-        <div class="card card--scenario">
+        <div class="card card--scenario" data-type="heat">
   <img class="card__icon" src="images/scheduled.svg" width="24" height="24" alt="" />
   <p class="card__name">Я ухожу</p>
   </div>
       </li>
           <li class="scenarios__item">
-        <div class="card card--scenario">
+        <div class="card card--scenario" data-type="lighting">
   <img class="card__icon" src="images/sun-colored.svg" width="24" height="24" alt="" />
   <p class="card__name">Включить свет в коридоре</p>
   </div>
       </li>
           <li class="scenarios__item">
-        <div class="card card--scenario">
+        <div class="card card--scenario" data-type="temperature">
   <img class="card__icon" src="images/temperature-colored.svg" width="24" height="24" alt="" />
   <p class="card__name">Набрать горячую ванну</p>
       <span class="card__status">Начнётся в 18:00</span>
   </div>
       </li>
           <li class="scenarios__item">
-        <div class="card card--scenario">
+        <div class="card card--scenario" data-type="temperature">
   <img class="card__icon" src="images/temperature-colored.svg" width="24" height="24" alt="" />
   <p class="card__name">Сделать пол тёплым во всей квартире</p>
   </div>
       </li>
           <li class="scenarios__item">
-        <div class="card card--scenario">
+        <div class="card card--scenario" data-type="heat">
   <img class="card__icon" src="images/scheduled.svg" width="24" height="24" alt="" />
   <p class="card__name">Я ухожу</p>
   </div>
       </li>
           <li class="scenarios__item">
-        <div class="card card--scenario">
+        <div class="card card--scenario" data-type="lighting">
   <img class="card__icon" src="images/sun-colored.svg" width="24" height="24" alt="" />
   <p class="card__name">Включить свет в коридоре</p>
   </div>
       </li>
           <li class="scenarios__item">
-        <div class="card card--scenario">
-  <img class="card__icon" src="images/temperature-colored.svg" width="24" height="24" alt="" />
+        <div class="card card--scenario" data-type="heat">
+  <img class="card__icon" src="images/temperature.svg" width="24" height="24" alt="" />
   <p class="card__name">Набрать горячую ванну</p>
       <span class="card__status">Начнётся в 18:00</span>
   </div>
       </li>
           <li class="scenarios__item">
-        <div class="card card--scenario">
+        <div class="card card--scenario" data-type="temperature">
   <img class="card__icon" src="images/temperature-colored.svg" width="24" height="24" alt="" />
   <p class="card__name">Сделать пол тёплым во всей квартире</p>
   </div>
       </li>
           <li class="scenarios__item">
-        <div class="card card--scenario">
+        <div class="card card--scenario" data-type="temperature">
   <img class="card__icon" src="images/temperature-colored.svg" width="24" height="24" alt="" />
   <p class="card__name">Сделать пол тёплым во всей квартире</p>
   </div>
@@ -168,31 +169,31 @@
 
 <section class="devices">
   <h2 class="devices__title section-title">Избранные устройства</h2>
-  <div class="filter">
+  <div class="filter devices__filters filter--select">
   <span class="filter__current" tabindex="0">Все</span>
   <ul class="filter__list">
           <li class="filter__item">
-        <button class="filter__button filter__button--active">
+        <button class="button filter__button button--yellow filter__button--active">
           Все
         </button>
       </li>
           <li class="filter__item">
-        <button class="filter__button ">
+        <button class="button filter__button ">
           Кухня
         </button>
       </li>
           <li class="filter__item">
-        <button class="filter__button ">
+        <button class="button filter__button ">
           Зал
         </button>
       </li>
           <li class="filter__item">
-        <button class="filter__button ">
+        <button class="button filter__button ">
           Лампочки
         </button>
       </li>
           <li class="filter__item">
-        <button class="filter__button ">
+        <button class="button filter__button ">
           Камеры
         </button>
       </li>
@@ -201,49 +202,49 @@
   <div class="devices__list-wrapper">
     <ul class="devices__list">
               <li class="devices__item">
-          <div class="card card--device">
+          <div class="card card--device" data-type="lighting">
   <img class="card__icon" src="images/sun-colored.svg" width="24" height="24" alt="" />
   <p class="card__name">Xiaomi Yeelight LED Smart Bulb</p>
       <span class="card__status">Включено</span>
   </div>
         </li>
               <li class="devices__item">
-          <div class="card card--device">
+          <div class="card card--device" data-type="lighting">
   <img class="card__icon" src="images/sun.svg" width="24" height="24" alt="" />
   <p class="card__name">D-Link Omna 180 Cam</p>
       <span class="card__status">Включится в 17:00</span>
   </div>
         </li>
               <li class="devices__item">
-          <div class="card card--device">
+          <div class="card card--device" data-type="heat">
   <img class="card__icon" src="images/temperature.svg" width="24" height="24" alt="" />
   <p class="card__name">Elgato Eve Degree Connected</p>
       <span class="card__status">Выключено до 17:00</span>
   </div>
         </li>
               <li class="devices__item">
-          <div class="card card--device">
-  <img class="card__icon" src="images/sun.svg" width="24" height="24" alt="" />
+          <div class="card card--device" data-type="temperature">
+  <img class="card__icon" src="images/temperature-colored.svg" width="24" height="24" alt="" />
   <p class="card__name">LIFX Mini Day & Dusk A60 E27</p>
       <span class="card__status">Включится в 17:00</span>
   </div>
         </li>
               <li class="devices__item">
-          <div class="card card--device">
+          <div class="card card--device" data-type="lighting">
   <img class="card__icon" src="images/sun-colored.svg" width="24" height="24" alt="" />
   <p class="card__name">Xiaomi Mi Air Purifier 2S</p>
       <span class="card__status">Включено</span>
   </div>
         </li>
               <li class="devices__item">
-          <div class="card card--device">
+          <div class="card card--device" data-type="lighting">
   <img class="card__icon" src="images/sun.svg" width="24" height="24" alt="" />
   <p class="card__name">Philips Zhirui</p>
       <span class="card__status">Выключено</span>
   </div>
         </li>
               <li class="devices__item">
-          <div class="card card--device">
+          <div class="card card--device" data-type="lighting">
   <img class="card__icon" src="images/sun-colored.svg" width="24" height="24" alt="" />
   <p class="card__name">Elgato Eve Degree Connected</p>
       <span class="card__status">Выключено до 17:00</span>
@@ -253,7 +254,7 @@
   </div>
 </section>
 </main>
-  <footer class="footer">
+    <footer class="footer">
   <div class="footer__container container">
     <ul class="secondary-nav">
       <li class="secondary-nav__item">
@@ -270,12 +271,139 @@
       </li>
     </ul>
     <div class="copyright">
-      © 2018
+      © 2001—2017
       <a class="link" href="https://yandex.ru">ООО «Яндекс»</a>
     </div>
   </div>
 </footer>
-  <script src="scripts/libs/tiny-slider.js"></script>
+  </div>
+  
+
+<div class="modal modal--hidden heat-modal" data-type="heat">
+  <div class="modal__container" role="dialog">
+    <div class="modal__content">
+      <header class="modal__header">
+        <h3 class="modal__title">Xiaomi Warm Floor</h3>
+        <p class="modal__subtitle">Включено</p>
+        <div class="modal__side">
+            <b class="heat-modal__value">+23</b>
+  <img src="images/temperature-colored.svg" alt="" />
+
+        </div>
+      </header>
+        heat
+
+    </div>
+    <footer class="modal__footer footer-modal">
+      <button class="footer-modal__btn footer-modal__btn--yellow" type="button">Применить</button>
+      <button class="footer-modal__btn" type="button">Закрыть</button>
+    </footer>
+  </div>
+</div>
+  
+
+
+<div class="modal modal--hidden lighting-modal" data-type="lighting">
+  <div class="modal__container" role="dialog">
+    <div class="modal__content">
+      <header class="modal__header">
+        <h3 class="modal__title">Xiaomi Yeelight LED Smart Bulb</h3>
+        <p class="modal__subtitle">Включится в 17:00</p>
+        <div class="modal__side">
+            <img src="images/sun.svg" alt="" />
+
+        </div>
+      </header>
+        <div>
+    <div class="filter  ">
+  <span class="filter__current" tabindex="0">Все</span>
+  <ul class="filter__list">
+          <li class="filter__item">
+        <button class="button filter__button button--yellow filter__button--active">
+          Вручную
+        </button>
+      </li>
+          <li class="filter__item">
+        <button class="button filter__button ">
+          Дневной свет
+        </button>
+      </li>
+          <li class="filter__item">
+        <button class="button filter__button ">
+          Вечерний свет
+        </button>
+      </li>
+          <li class="filter__item">
+        <button class="button filter__button ">
+          Рассвет
+        </button>
+      </li>
+      </ul>
+</div>
+    <div class="wrapper">
+      <div class="lighting-modal__range" id="lighting-range"></div>
+    </div>
+  </div>
+
+    </div>
+    <footer class="modal__footer footer-modal">
+      <button class="footer-modal__btn footer-modal__btn--yellow" type="button">Применить</button>
+      <button class="footer-modal__btn" type="button">Закрыть</button>
+    </footer>
+  </div>
+</div>
+  
+
+
+<div class="modal modal--hidden temperature-modal" data-type="temperature">
+  <div class="modal__container" role="dialog">
+    <div class="modal__content">
+      <header class="modal__header">
+        <h3 class="modal__title">Elgato Eve Degree Connected</h3>
+        <p class="modal__subtitle">Включено</p>
+        <div class="modal__side">
+            <b class="temperature-modal__value">+23</b>
+  <img src="images/temperature-colored.svg" alt="" />
+
+        </div>
+      </header>
+        <div>
+    <div class="filter  ">
+  <span class="filter__current" tabindex="0">Все</span>
+  <ul class="filter__list">
+          <li class="filter__item">
+        <button class="button filter__button button--yellow filter__button--active">
+          Вручную
+        </button>
+      </li>
+          <li class="filter__item">
+        <button class="button filter__button ">
+          Холодно
+        </button>
+      </li>
+          <li class="filter__item">
+        <button class="button filter__button ">
+          Тепло
+        </button>
+      </li>
+          <li class="filter__item">
+        <button class="button filter__button ">
+          Жарко
+        </button>
+      </li>
+      </ul>
+</div>
+  </div>
+
+    </div>
+    <footer class="modal__footer footer-modal">
+      <button class="footer-modal__btn footer-modal__btn--yellow" type="button">Применить</button>
+      <button class="footer-modal__btn" type="button">Закрыть</button>
+    </footer>
+  </div>
+</div>
+  <script src="scripts/libs/tiny-slider.min.js"></script>
+  <script src="scripts/libs/range-slider.min.js"></script>
   <script src="scripts/script.min.js"></script>
 </body>
 </html>
