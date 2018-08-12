@@ -1,0 +1,17 @@
+{% set content %}
+  heat
+{% endset %}
+
+{% set header %}
+  <b class="heat-modal__value">+23</b>
+  <img src="images/temperature-colored.svg" alt="" />
+{% endset %}
+
+{% include "modal.twig" with {
+  class: "heat-modal",
+  title: "Xiaomi Warm Floor",
+  subtitle: "Включено",
+  header,
+  content,
+  type: "heat"
+} %}

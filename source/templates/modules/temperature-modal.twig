@@ -1,0 +1,17 @@
+{% set content %}
+  temperature
+{% endset %}
+
+{% set header %}
+  <b class="temperature-modal__value">+23</b>
+  <img src="images/temperature-colored.svg" alt="" />
+{% endset %}
+
+{% include "modal.twig" with {
+  class: "temperature-modal",
+  title: "Elgato Eve Degree Connected",
+  subtitle: "Включено",
+  header,
+  content,
+  type: "temperature"
+} %}

@@ -1,4 +1,4 @@
-<div class="filter">
+<div class="filter {{ select ? "filter--select" : "" }}">
   <span class="filter__current" tabindex="0">Все</span>
   <ul class="filter__list">
     {% for filter in filters %}

@@ -1,27 +1,44 @@
-const modal = document.querySelector(".modal");
-const cards = document.querySelectorAll(".card");
+const layout = document.querySelector(".layout");
 
-modal.addEventListener("click", onModalClose);
+const modals = {
+  heat: document.querySelector(".modal[data-type=heat]"),
+  temperature: document.querySelector(".modal[data-type=temperature]"),
+  lighting: document.querySelector(".modal[data-type=lighting]"),
+};
 
-document.addEventListener('click',function(e) {
-  const clickedAtCard = e.path.some(el => el.classList && el.classList.contains("card"));
-  if(clickedAtCard && !isSomeSliderMoving) {
-    onModalToggle(e);
+Object.keys(modals).forEach(type => modals[type].addEventListener("click", onModalClose));
+
+document.addEventListener('click', event => {
+  const clickedAtCard = event.target.closest(".card");
+
+  if (clickedAtCard && !isSomeSliderMoving) {
+    const type = clickedAtCard.dataset.type;
+
+    onModalToggle(event, type);
   }
 });
 
 function onModalClose(event) {
   if (event.target !== this) return;
 
-  onModalToggle(event);
+  onModalToggle(event, this.dataset.type);
 }
 
-function onModalToggle(event) {
+function onModalToggle(event, type) {
   event.preventDefault();
 
+  const { clientX, clientY, offsetX, offsetY } = event;
+  const left = clientX - offsetX;
+  const top = clientY - offsetY;
+
   const hiddenClass = "modal--hidden";
-  const hasModalOpen = modal.classList.contains(hiddenClass);
+  const hasModalOpen = modals[type].classList.contains(hiddenClass);
+
+  if (hasModalOpen) document.documentElement.style.setProperty('--start-point', `translate(${left}px, ${top}px) scale(0.5)`);
 
   document.body.style.overflow = hasModalOpen ? "hidden" : "auto";
-  modal.classList.toggle(hiddenClass);
+  modals[type].classList.toggle(hiddenClass);
+  modals[type].classList.toggle("modal--opened");
+
+  layout.classList.toggle("layout--with-modal");
 }

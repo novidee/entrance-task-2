@@ -1,5 +1,5 @@
-var filter = document.querySelector(".filter__current");
-var filtersList = document.querySelector(".filter__list");
+const filter = document.querySelector(".filter__current");
+const filtersList = document.querySelector(".filter__list");
 
 filter.addEventListener("click", onFilterPopupOpen);
 

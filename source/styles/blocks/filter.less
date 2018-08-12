@@ -7,43 +7,82 @@
   });
 }
 
+.filter--select {
+  .filter__list {
+    .tablet-down({
+      position: absolute;
+      right: 0;
+      display: none;
+      flex-direction: column;
+      padding: 10px 0;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    });
+
+    &--opened {
+      display: flex;
+      z-index: 1;
+    }
+  }
+
+  .filter__item {
+    margin-right: 0;
+
+    .tablet-up({
+      margin-right: 10px;
+    });
+  }
+
+  .filter__button {
+    width: 100%;
+    padding: 4px 20px;
+    border-radius: 0;
+    background: white;
+
+    .tablet-up({
+      padding: 4px 15px;
+      border-radius: 20px;
+      background: @gray-lighter;
+    });
+
+    &--active {
+      background: fade(@yellow, 50%);
+
+      .tablet-up({
+        background: @yellow;
+      });
+    }
+  }
+
+  .filter__current {
+    display: inline-block;
+
+    .tablet-up({
+      display: none;
+    });
+  }
+}
+
 .filter__list {
   .reset-list();
 
   display: flex;
-
-  .tablet-down({
-    position: absolute;
-    right: 0;
-    display: none;
-    flex-direction: column;
-    padding: 10px 0;
-    background: white;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  });
-
-  &--opened {
-    display: flex;
-    z-index: 1;
-  }
+  overflow: auto;
 }
 
 .filter__item {
-  .tablet-up({
-    margin-right: 10px;
-  });
+  flex-shrink: 0;
+  margin-right: 10px;
 }
 
 .filter__button {
-  width: 100%;
-  padding: 4px 20px;
-  text-align: left;
+  padding: 4px 15px;
+  border-radius: 20px;
+  background: @gray-lighter;
   font-size: 13px;
+  text-align: left;
 
   .tablet-up({
-    padding: 4px 15px;
-    border-radius: 20px;
-    background: @gray-lighter;
     font-weight: bold;
   });
 
@@ -52,16 +91,16 @@
   }
 
   &--active {
-    background: fade(@yellow, 50%);
+    background: @yellow;
 
-    .tablet-up({
-      background: @yellow;
-    });
+    &:hover {
+      background: @yellow-dark;
+    }
   }
 }
 
 .filter__current {
-  display: inline-block;
+  display: none;
   padding: 4px 10px;
   vertical-align: middle;
   background: @yellow;
@@ -70,9 +109,9 @@
   font-weight: bold;
   cursor: pointer;
 
-  .tablet-up({
-    display: none;
-  });
+  &:hover {
+    background: @yellow-dark;
+  }
 
   &::after {
     content: "";

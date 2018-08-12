@@ -1,0 +1,29 @@
+{% set filters = [{
+  text: "Вручную",
+  isActive: true
+}, {
+  text: "Дневной свет"
+}, {
+  text: "Вечерний свет"
+}, {
+  text: "Рассвет"
+}] %}
+
+{% set content %}
+  <div>
+    {% include "./filter.twig" with {filters} %}
+  </div>
+{% endset %}
+
+{% set header %}
+  <img src="images/sun.svg" alt="" />
+{% endset %}
+
+{% include "modal.twig" with {
+  class: "lighting-modal",
+  title: "Xiaomi Yeelight LED Smart Bulb",
+  subtitle: "Включится в 17:00",
+  header,
+  content,
+  type: "lighting"
+} %}

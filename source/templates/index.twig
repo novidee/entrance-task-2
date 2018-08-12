@@ -7,9 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  {% include "modules/header.twig" %}
-  {% include "modules/dashboard.twig" %}
-  {% include "modules/footer.twig" %}
+  <div class="layout">
+    {% include "modules/header.twig" %}
+    {% include "modules/dashboard.twig" %}
+    {% include "modules/footer.twig" %}
+  </div>
+  {% include "modules/heat-modal.twig" %}
+  {% include "modules/lighting-modal.twig" %}
+  {% include "modules/temperature-modal.twig" %}
   <script src="scripts/libs/tiny-slider.js"></script>
   <script src="scripts/script.min.js"></script>
 </body>
