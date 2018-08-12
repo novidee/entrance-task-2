@@ -1,35 +1,43 @@
 {% set scenarios = [{
   icon: "images/sun-colored.svg",
   name: "Выключить весь свет в доме и во дворе",
+  type: "lighting"
 }, {
   icon: "images/scheduled.svg",
   name: "Я ухожу",
 }, {
   icon: "images/sun-colored.svg",
   name: "Включить свет в коридоре",
+  type: "lighting"
 }, {
   icon: "images/temperature-colored.svg",
   name: "Набрать горячую ванну",
-  status: "Начнётся в 18:00"
+  status: "Начнётся в 18:00",
+  type: "temperature"
 }, {
   icon: "images/temperature-colored.svg",
   name: "Сделать пол тёплым во всей квартире",
+  type: "temperature"
 }, {
   icon: "images/scheduled.svg",
   name: "Я ухожу",
 }, {
   icon: "images/sun-colored.svg",
   name: "Включить свет в коридоре",
+  type: "lighting"
 }, {
-  icon: "images/temperature-colored.svg",
+  icon: "images/temperature.svg",
   name: "Набрать горячую ванну",
-  status: "Начнётся в 18:00"
+  status: "Начнётся в 18:00",
+  type: "heat"
 }, {
   icon: "images/temperature-colored.svg",
   name: "Сделать пол тёплым во всей квартире",
+  type: "temperature"
 }, {
   icon: "images/temperature-colored.svg",
   name: "Сделать пол тёплым во всей квартире",
+  type: "temperature"
 }] %}
 
 <section class="scenarios">

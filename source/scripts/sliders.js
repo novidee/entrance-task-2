@@ -8,14 +8,35 @@ const DEFAULT_CONFIG = {
   nav: false,
   mouseDrag: true,
   loop: false,
-  speed: 600
+  speed: 600,
+  swipeAngle: false
 };
 
 const prevArrow = "<img class='tns-controls-prev' src='images/arrow-left.svg' alt=''/>";
 const nextArrow = "<img class='tns-controls-next' src='images/arrow-left.svg' alt=''/>";
 
-class ScenariosSlider {
+class BaseSlider {
+  toggleListeners(action) {
+    this.sliderInfo.events[action]("dragMove", preventClick);
+    this.sliderInfo.events[action]("touchMove", preventClick);
+
+    this.sliderInfo.events[action]("dragEnd", admitClick);
+    this.sliderInfo.events[action]("touchEnd", admitClick);
+  }
+
+  subscribe() {
+    this.toggleListeners("on");
+  }
+
+  unsubscribe() {
+    this.toggleListeners("off");
+  }
+}
+
+class ScenariosSlider extends BaseSlider {
   constructor() {
+    super();
+
     this.options = Object.assign({}, DEFAULT_CONFIG, {
       container: ".scenarios__list",
       fixedWidth: 200,
@@ -50,9 +71,11 @@ class ScenariosSlider {
 
   build() {
     this.sliderInfo = tns(this.options);
+    super.subscribe();
   }
 
   destroy() {
+    super.unsubscribe();
     this.sliderInfo.destroy();
   }
 
@@ -110,8 +133,10 @@ class ScenariosSlider {
 const scenariosSlider = new ScenariosSlider();
 scenariosSlider.create();
 
-class InfoDevicesSlider {
+class InfoDevicesSlider extends BaseSlider {
   constructor() {
+    super();
+
     const container = ".info__devices-list";
 
     this.options = {
@@ -136,9 +161,13 @@ class InfoDevicesSlider {
 
   build(type) {
     this.sliderInfo = tns(this.options[type]);
+
+    super.subscribe();
   }
 
   destroy() {
+    super.unsubscribe();
+
     this.sliderInfo.destroy();
   }
 
@@ -160,8 +189,12 @@ class InfoDevicesSlider {
 const infoDevicesSlider = new InfoDevicesSlider();
 infoDevicesSlider.create();
 
-class DevicesSlider {
+let isSomeSliderMoving = false;
+
+class DevicesSlider extends BaseSlider {
   constructor() {
+    super();
+
     this.options = Object.assign({}, DEFAULT_CONFIG, {
       container: ".devices__list",
       fixedWidth: 200,
@@ -181,11 +214,20 @@ class DevicesSlider {
 
   create() {
     this.sliderInfo = tns(this.options);
+    super.subscribe();
   }
 }
 
 const devicesSlider = new DevicesSlider();
 devicesSlider.create();
+
+function preventClick() {
+  isSomeSliderMoving = true;
+}
+
+function admitClick() {
+  isSomeSliderMoving = false;
+}
 
 function debounce(f, ms) {
 
