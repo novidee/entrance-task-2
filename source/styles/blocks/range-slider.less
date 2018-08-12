@@ -1,0 +1,63 @@
+.range-slider {
+  width: 100%;
+  transform: translateX(50%);
+  margin-left: -50%;
+
+  .dragger {
+    display: block;
+    width: 60px;
+    height: 60px;
+    position: relative;
+    z-index: 2;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 3px solid fade(@gray-dark, 10%);
+    box-shadow: 0 0 0 4px white;
+    cursor: inherit;
+  }
+}
+
+.range-slider-track {
+  position: relative;
+  width: auto;
+  height: 60px;
+  cursor: e-resize;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    border-radius: 30px;
+    background-color: black;
+  }
+}
+
+.range-slider-vertical {
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+  margin-top: -276px;
+  margin-left: 0;
+
+  .range-slider-track {
+    cursor: n-resize;
+    width: 60px;
+    height: inherit;
+
+    &::before {
+      top: 0;
+      right: auto;
+      width: 60px;
+      height: 100%;
+    }
+  }
+}
+
+//todo удалить
+.wrapper {
+  height: 336px;
+  transform: translateY(calc(100% - 60px));
+}
