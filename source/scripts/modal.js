@@ -34,7 +34,7 @@ function onModalToggle(event, type) {
   const hiddenClass = "modal--hidden";
   const hasModalOpen = modals[type].classList.contains(hiddenClass);
 
-  if (hasModalOpen) document.documentElement.style.setProperty('--start-point', `translate(${left}px, ${top}px) scale(0.5)`);
+  if (hasModalOpen) document.documentElement.style.setProperty('--start-point', `translate(${left}px, ${top}px) scale(0.2)`);
 
   document.body.style.overflow = hasModalOpen ? "hidden" : "auto";
   modals[type].classList.toggle(hiddenClass);

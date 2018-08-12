@@ -1,5 +1,18 @@
+{% set filters = [{
+  text: "Вручную",
+  isActive: true
+}, {
+  text: "Холодно"
+}, {
+  text: "Тепло"
+}, {
+  text: "Жарко"
+}] %}
+
 {% set content %}
-  temperature
+  <div>
+    {% include "./filter.twig" with {filters} %}
+  </div>
 {% endset %}
 
 {% set header %}

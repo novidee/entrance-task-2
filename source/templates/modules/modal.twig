@@ -1,16 +1,18 @@
 <div class="modal modal--hidden {{ class }}" data-type="{{ type }}">
   <div class="modal__container" role="dialog">
-    <header class="modal__header">
-      <h3 class="modal__title">{{ title }}</h3>
-      <p class="modal__subtitle">{{ subtitle }}</p>
-      <div class="modal__side">
-        {{ header }}
-      </div>
-    </header>
-    {{ content }}
-    <footer class="modal__footer">
-      <button class="btn btn--yellow modal__apply" type="button">Применить</button>
-      <button class="btn modal__close" type="button">Закрыть</button>
+    <div class="modal__content">
+      <header class="modal__header">
+        <h3 class="modal__title">{{ title }}</h3>
+        <p class="modal__subtitle">{{ subtitle }}</p>
+        <div class="modal__side">
+          {{ header }}
+        </div>
+      </header>
+      {{ content }}
+    </div>
+    <footer class="modal__footer footer-modal">
+      <button class="footer-modal__btn footer-modal__btn--yellow" type="button">Применить</button>
+      <button class="footer-modal__btn" type="button">Закрыть</button>
     </footer>
   </div>
 </div>

@@ -1,9 +1,9 @@
-<div class="filter {{ select ? "filter--select" : "" }}">
+<div class="filter {{ class }} {{ select ? "filter--select" : "" }}">
   <span class="filter__current" tabindex="0">Все</span>
   <ul class="filter__list">
     {% for filter in filters %}
       <li class="filter__item">
-        <button class="filter__button {{ filter.isActive ? "filter__button--active" : "" }}">
+        <button class="button filter__button {{ filter.isActive ? "button--yellow filter__button--active" : "" }}">
           {{ filter.text }}
         </button>
       </li>

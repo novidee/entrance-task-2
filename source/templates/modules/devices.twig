@@ -50,7 +50,7 @@
 
 <section class="devices">
   <h2 class="devices__title section-title">Избранные устройства</h2>
-  {% include "filter.twig" with {filters, select: true} %}
+  {% include "filter.twig" with {filters, select: true, class: "devices__filters"} %}
   <div class="devices__list-wrapper">
     <ul class="devices__list">
       {% for item in devices %}
