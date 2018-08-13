@@ -1,4 +1,5 @@
 const layout = document.querySelector(".layout");
+const footerButtons = document.querySelectorAll(".footer-modal__btn");
 
 const modals = {
   heat: document.querySelector(".modal[data-type=heat]"),
@@ -7,6 +8,7 @@ const modals = {
 };
 
 Object.keys(modals).forEach(type => modals[type].addEventListener("click", onModalClose));
+Array.from(footerButtons).forEach(button => button.addEventListener("click", onModalClose));
 
 document.addEventListener('click', event => {
   const clickedAtCard = event.target.closest(".card");
@@ -21,7 +23,7 @@ document.addEventListener('click', event => {
 function onModalClose(event) {
   if (event.target !== this) return;
 
-  onModalToggle(event, this.dataset.type);
+  onModalToggle(event, this.closest(".modal").dataset.type);
 }
 
 function onModalToggle(event, type) {
