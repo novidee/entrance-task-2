@@ -1,0 +1,25 @@
+.lighting-range {
+  .range-slider-track {
+    background: linear-gradient(#ffb100, #ffe88c);
+
+    .tablet-up({
+      background: linear-gradient(to right, #ffe682, #ff9e00);
+    });
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 36px;
+      height: 36px;
+    }
+
+    &::before {
+      background: url(../images/sun-min.svg);
+    }
+
+    &::after {
+      background: url(../images/sun-max.svg);
+    }
+  }
+}

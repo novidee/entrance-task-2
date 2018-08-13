@@ -1,5 +1,5 @@
-var toggler = document.querySelector(".main-nav__toggler");
-var nav = document.querySelector(".main-nav");
+const toggler = document.querySelector(".main-nav__toggler");
+const nav = document.querySelector(".main-nav");
 
 toggler.addEventListener("click", onMenuToggle);
 

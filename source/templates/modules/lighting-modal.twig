@@ -11,10 +11,8 @@
 
 {% set content %}
   <div>
-    {% include "./filter.twig" with {filters} %}
-    <div class="wrapper">
-      <div class="lighting-modal__range" id="lighting-range"></div>
-    </div>
+    {% include "./filter.twig" with {filters, class: "modal__filter"} %}
+    <div class="lighting-range" id="lighting-range"></div>
   </div>
 {% endset %}
 

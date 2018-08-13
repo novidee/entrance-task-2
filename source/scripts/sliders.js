@@ -65,7 +65,6 @@ class ScenariosSlider extends BaseSlider {
       [MEDIA_AREA.desktopHDUp]: 9
     };
 
-    this.currentCardsPerSlide = this.getCardsPerSlide();
     this.items = Array.from(document.querySelectorAll(".scenarios__item"));
   }
 
@@ -80,30 +79,18 @@ class ScenariosSlider extends BaseSlider {
   }
 
   create() {
-    const { currentCardsPerSlide } = this;
-
-    this.prepareMarkup(currentCardsPerSlide);
+    this.prepareMarkup(this.CARDS_PER_SLIDE[getCurrentMediaArea()]);
     this.build();
 
-    window.addEventListener('resize', debounce(() => this.update(), 50));
+    listenWindowResize(50, info => this.update(info));
   }
 
-  update() {
-    const { currentCardsPerSlide } = this;
-    const cardsPerSlide = this.getCardsPerSlide();
-
-    if (cardsPerSlide === currentCardsPerSlide) return;
-
-    this.currentCardsPerSlide = cardsPerSlide;
+  update({ mediaArea, mediaAreaChanged }) {
+    if (!mediaAreaChanged) return;
 
     this.destroy();
-    this.prepareMarkup(cardsPerSlide);
+    this.prepareMarkup(this.CARDS_PER_SLIDE[mediaArea]);
     this.build();
-  }
-
-  getCardsPerSlide() {
-    const mediaArea = getCurrentMediaArea();
-    return this.CARDS_PER_SLIDE[mediaArea];
   }
 
   prepareMarkup(cardsPerSlide) {
@@ -155,8 +142,6 @@ class InfoDevicesSlider extends BaseSlider {
         edgePadding: 20
       })
     };
-
-    this.currentMediaArea = getCurrentMediaArea();
   }
 
   build(type) {
@@ -171,18 +156,16 @@ class InfoDevicesSlider extends BaseSlider {
     this.sliderInfo.destroy();
   }
 
-  rebuild() {
-    const mediaArea = getCurrentMediaArea();
-    if (mediaArea === this.currentMediaArea) return;
-    this.currentMediaArea = mediaArea;
+  rebuild({ mediaArea, mediaAreaChanged }) {
+    if (!mediaAreaChanged) return;
 
     this.destroy();
     this.build(mediaArea === MEDIA_AREA.desktopHDUp ? "vertical" : "horizontal");
   }
 
   create() {
-    this.build(this.currentMediaArea === MEDIA_AREA.desktopHDUp ? "vertical" : "horizontal");
-    window.addEventListener('resize', debounce(() => this.rebuild(), 50));
+    this.build(getCurrentMediaArea() === MEDIA_AREA.desktopHDUp ? "vertical" : "horizontal");
+    listenWindowResize(50, info => this.rebuild(info));
   }
 }
 
@@ -250,3 +233,16 @@ function debounce(f, ms) {
 function getCurrentMediaArea() {
   return getComputedStyle(document.querySelector(':root')).getPropertyValue('--media').trim();
 }
+
+function listenWindowResize(delay, onResize) {
+  let currentMediaArea = getCurrentMediaArea();
+
+  window.addEventListener('resize', debounce(() => {
+    const mediaArea = getCurrentMediaArea();
+    const mediaAreaChanged = mediaArea !== currentMediaArea;
+    currentMediaArea = mediaAreaChanged ? mediaArea : currentMediaArea;
+
+    onResize({ mediaArea, mediaAreaChanged });
+  }, delay));
+}
+
