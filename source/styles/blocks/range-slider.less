@@ -19,9 +19,13 @@
   position: relative;
   width: auto;
   height: 60px;
-  border-radius: 30px;
+  border-radius: 35px;
   background: black;
   cursor: e-resize;
+
+  .tablet-up({
+    border-radius: 30px;
+  });
 
   &::before,
   &::after {
@@ -42,7 +46,7 @@
     });
 
     .tablet-up({
-      left: 15px;
+      left: 20px;
     });
   }
 
@@ -52,7 +56,7 @@
     });
 
     .tablet-up({
-      right: 15px;
+      right: 20px;
     });
   }
 }

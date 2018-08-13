@@ -1,0 +1,29 @@
+.temperature-range {
+  @gradient-blue: #068fff;
+  @gradient-yellow: #ffd800;
+  @gradient-orange: #f76b1c;
+
+  .range-slider-track {
+    background-image: linear-gradient(to top, @gradient-blue, @gradient-yellow 50%, @gradient-orange);
+
+    .tablet-up({
+      background-image: linear-gradient(to right, @gradient-blue, @gradient-yellow 50%, @gradient-orange);
+    });
+
+    &::before,
+    &::after {
+      display: block;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    &::before {
+      content: attr(data-min);
+    }
+
+    &::after {
+      content: attr(data-max);
+    }
+  }
+}

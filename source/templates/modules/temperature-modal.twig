@@ -11,7 +11,7 @@
 
 {% set content %}
   <div>
-    {% include "./filter.twig" with {filters} %}
+    {% include "./filter.twig" with {filters, class: "modal__filter"} %}
     <div class="temperature-range" id="temperature-range"></div>
   </div>
 {% endset %}
