@@ -8,7 +8,6 @@
   height: 100%;
   padding: 20px;
   background: fade(@gray-dark, 50%);
-  //border: 20px solid transparent;
   opacity: 1;
   overflow: auto;
   transition: @transition;
@@ -62,23 +61,23 @@
 
 .modal__container {
   width: 100%;
-  margin: auto;
-  //transform-origin: top left;
-  //will-change: transform;
 
   .tablet-up({
+    margin: auto;
     width: 630px;
   });
 }
 
 .modal__header {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 14px;
 }
 
 .modal__content {
   margin-bottom: 15px;
-  padding: 20px;
+  padding: 20px 20px 26px;
   border-radius: 20px;
   background: white;
 
@@ -92,7 +91,7 @@
   display: block;
   margin: 0;
   font-size: 18px;
-  line-height: 1.17;
+  line-height: 1.4;
 
   .tablet-up({
     font-size: 22px;
@@ -108,7 +107,7 @@
   width: 100%;
   margin: 0;
   font-size: 12px;
-  line-height: 1.17;
+  line-height: 1.5;
 
   .tablet-up({
     font-size: 14px;
@@ -116,7 +115,9 @@
 }
 
 .modal__side {
-  margin-left: auto;
+  position: absolute;
+  right: -2px;
+  top: -7px;
 
   .tablet-down({
     display: none;
@@ -124,7 +125,7 @@
 }
 
 .modal__filter {
-  margin: 0 -20px;
+  margin: 0 -20px 26px;
 
   .filter__list {
     padding-left: 20px;

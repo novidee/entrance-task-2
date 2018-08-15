@@ -14,7 +14,7 @@
   });
 
   .tns-controls {
-    top: 0;
+    top: 6px;
     right: 20px;
 
     .tablet-up({
@@ -57,6 +57,12 @@
   width: 100%;
 }
 
+.devices__title {
+  .tablet-up({
+    margin-bottom: 22px;
+  });
+}
+
 .devices__list {
   .reset-list();
 }
@@ -66,7 +72,16 @@
 }
 
 .devices__filters {
+  margin-top: -6px;
+  margin-bottom: auto;
+
   .tablet-up({
     margin-left: 14px;
   });
+
+  //.filter__button {
+  //  .tablet-up({
+  //    padding: 5px 14px;
+  //  });
+  //}
 }

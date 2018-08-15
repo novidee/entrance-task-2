@@ -1,9 +1,13 @@
 .dashboard {
   flex-grow: 1;
-  padding-top: 50px;
+  padding-top: 64px;
 
   .small-tablet-up({
-    padding-top:0;
+    padding-top: 0;
+  });
+
+  .tablet-up({
+    padding-top: 30px;
   });
 }
 
@@ -13,13 +17,20 @@
   .tablet-down({
     flex-wrap: wrap;
   });
+
+  .tablet-up({
+    margin-bottom: 26px;
+  });
 }
 
 .dashboard__scenarios-wrapper {
   width: 100%;
+  margin-bottom: 20px;
 
   .tablet-up({
     width: 430px;
+    margin: 0;
+    padding-left: 5px;
   });
 
   .desktop-hd-up({
@@ -31,10 +42,12 @@
   display: flex;
   flex-grow: 1;
   width: 100%;
+  margin-bottom: 30px;
 
   .tablet-up({
     width: calc(100% - 430px);
-    padding-right: 16px;
+    margin: 0;
+    padding: 0 10px 0 0;
   });
 
   .desktop-hd-up({

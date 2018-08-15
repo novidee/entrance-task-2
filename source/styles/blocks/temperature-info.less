@@ -2,7 +2,17 @@
   display: flex;
 }
 
+.temperature-info__item {
+  margin-right: 20px;
+
+  &:last-of-type {
+    margin: 0;
+  }
+}
+
 .temperature-info__caption {
+  display: inline-block;
+  margin-bottom: 4px;
   font-size: 12px;
   color: @gray;
 
@@ -11,9 +21,25 @@
   });
 }
 
+.temperature-info__content {
+  font-size: 0;
+}
+
+.temperature-info__icon {
+  margin-left: 4px;
+  vertical-align: -2px;
+
+  .tablet-up({
+    width: 26px;
+    height: 26px;
+    vertical-align: 0;
+  });
+}
+
 .temperature-info__value {
   font-size: 24px;
   font-weight: bold;
+  line-height: 1;
 
   .tablet-up({
     font-size: 30px;
