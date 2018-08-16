@@ -17,7 +17,7 @@
 {% endset %}
 
 {% set header %}
-  {% include "./temperature-indicator.twig" %}
+  {% include "./temperature-indicator.twig" with { class: "temperature-indicator--js" } %}
 {% endset %}
 
 {% include "modal.twig" with {

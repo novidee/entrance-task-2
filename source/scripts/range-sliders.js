@@ -67,7 +67,7 @@ class RangeSlider {
 const lightingRange = new RangeSlider({ container: "#lighting-range" });
 lightingRange.init();
 
-const temperatureNode = document.querySelector(".temperature-indicator__value");
+const temperatureNode = document.querySelector(".temperature-indicator--js .temperature-indicator__value");
 
 const temperatureRange = new RangeSlider({
   container: "#temperature-range",

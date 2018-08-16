@@ -34,46 +34,44 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: url(../images/circular-range-scale.svg);
-  //filter: invert(80%) sepia(49%) saturate(3918%) hue-rotate(345deg) brightness(104%) contrast(92%);
+  border-radius: 50%;
+  background: black;
 
-
-  &::after {
+  &::before {
     content: "";
     display: block;
     position: absolute;
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 0 62px 110px;
+    border-width: 0 64px 110px;
     border-color: transparent transparent white;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  &::after {
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    width: 223px;
+    height: 223px;
+    background: url(../images/circular-range-scale.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
 
 .circular-range__path {
   width: 100%;
   height: 50%;
-  //background: red;
   border-radius: 286px 286px 0 0;
-  /* background: white; */
-  //overflow: hidden;
-  //filter: invert(80%) sepia(49%) saturate(3918%) hue-rotate(345deg) brightness(104%) contrast(92%);
+  background: red;
   position: absolute;
   top: 0;
-  -webkit-transform-origin: 50% 100%;
   transform-origin: 50% 100%;
   transform: rotate(15deg);
-
-  &::before {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 200%;
-    //filter: invert(80%) sepia(49%) saturate(3918%) hue-rotate(345deg) brightness(104%) contrast(92%);
-    //background: url(../images/circular-range-scale.svg);
-  }
 }
