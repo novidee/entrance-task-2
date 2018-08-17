@@ -12,7 +12,7 @@
   <div class="container">
     <nav class="main-nav">
       <a class="main-nav__logo">
-        <img class="main-nav__logo-image" src="images/logo.svg" alt="Яндекс дом лого" />
+        <img class="main-nav__logo-image" src="images/logo.svg" width="110" height="37" alt="Яндекс дом лого" />
       </a>
       <button class="main-nav__toggler" aria-label="Переключить меню" type="button"></button>
       <ul class="main-nav__menu menu">
@@ -39,7 +39,7 @@
   <h2 class="info__title section-title">Главное</h2>
   <div class="info__card">
     <div class="info__content">
-      <b class="info__greeting">Привет, Геннадий!</b>
+      <p class="info__greeting">Привет, Геннадий!</p>
       <p class="info__status-message">Двери и окна закрыты, сигнализация включена</p>
       <div class="info__temperature temperature-info">
         <div class="temperature-info__item">
@@ -286,12 +286,32 @@
         <h3 class="modal__title">Xiaomi Warm Floor</h3>
         <p class="modal__subtitle">Включено</p>
         <div class="modal__side">
-            <b class="heat-modal__value">+23</b>
-  <img src="images/temperature-colored.svg" alt="" />
+            <div class="temperature-indicator ">
+  <b class="temperature-indicator__value">+23</b>
+  <img class="temperature-indicator__icon" src="images/temperature-colored.svg" alt="" />
+</div>
 
         </div>
       </header>
-        heat
+        <div class="circular-range">
+  <div class="circular-range__info">
+    <span class="circular-range__value">+23</span>
+  </div>
+  <div class="circular-range__scale-wrapper">
+    <svg class="circular-range__scale" width="221px" height="221px" viewBox="0 0 221 221" version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+      <circle r="99.5" cx="110.5" cy="110.5" stroke-width="22" stroke="#F5A623" fill="none"></circle>
+      <circle id="current" r="99.5" cx="110.5" cy="110.5" stroke-width="22" stroke="#333" fill="none"
+              stroke-dasharray="625" stroke-dashoffset="222"></circle>
+      <circle r="99.5" cx="110.5" cy="110.5" stroke-width="22" stroke-dasharray="4,1" stroke="white" fill="none"></circle>
+      <circle cx="110.5" cy="110.5" r="110.5" stroke-width="1"
+              stroke-dasharray="none" stroke="white" fill="none"></circle>
+    </svg>
+  </div>
+</div>
+
+
 
     </div>
     <footer class="modal__footer footer-modal">
@@ -310,12 +330,12 @@
         <h3 class="modal__title">Xiaomi Yeelight LED Smart Bulb</h3>
         <p class="modal__subtitle">Включится в 17:00</p>
         <div class="modal__side">
-            <img src="images/sun.svg" alt="" />
+            <img class="lighting-modal__icon" src="images/sun.svg" alt="" />
 
         </div>
       </header>
         <div>
-    <div class="filter  ">
+    <div class="filter modal__filter ">
   <span class="filter__current" tabindex="0">Все</span>
   <ul class="filter__list">
           <li class="filter__item">
@@ -340,9 +360,7 @@
       </li>
       </ul>
 </div>
-    <div class="wrapper">
-      <div class="lighting-modal__range" id="lighting-range"></div>
-    </div>
+    <div class="lighting-range" id="lighting-range"></div>
   </div>
 
     </div>
@@ -362,13 +380,15 @@
         <h3 class="modal__title">Elgato Eve Degree Connected</h3>
         <p class="modal__subtitle">Включено</p>
         <div class="modal__side">
-            <b class="temperature-modal__value">+23</b>
-  <img src="images/temperature-colored.svg" alt="" />
+            <div class="temperature-indicator temperature-indicator--js">
+  <b class="temperature-indicator__value">+23</b>
+  <img class="temperature-indicator__icon" src="images/temperature-colored.svg" alt="" />
+</div>
 
         </div>
       </header>
         <div>
-    <div class="filter  ">
+    <div class="filter modal__filter ">
   <span class="filter__current" tabindex="0">Все</span>
   <ul class="filter__list">
           <li class="filter__item">
@@ -393,6 +413,7 @@
       </li>
       </ul>
 </div>
+    <div class="temperature-range" id="temperature-range"></div>
   </div>
 
     </div>

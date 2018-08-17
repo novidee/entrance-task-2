@@ -1,14 +1,19 @@
 <div class="circular-range">
-  <div class="circular-range__bg"></div>
   <div class="circular-range__info">
     <span class="circular-range__value">+23</span>
   </div>
-  <div class="circular-range__scale">
-    <div class="circular-range__path">
-      <div class="circular-range__inner"></div>
-    </div>
-    {#<div class="circular-range__path"></div>#}
-    {#<div class="circular-range__path"></div>#}
-    {#<div class="circular-range__path"></div>#}
+  <div class="circular-range__scale-wrapper">
+    <svg class="circular-range__scale" width="221px" height="221px" viewBox="0 0 221 221" version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+      <circle r="99.5" cx="110.5" cy="110.5" stroke-width="22" stroke="#F5A623" fill="none"></circle>
+      <circle id="current" r="99.5" cx="110.5" cy="110.5" stroke-width="22" stroke="#333" fill="none"
+              stroke-dasharray="625" stroke-dashoffset="222"></circle>
+      <circle r="99.5" cx="110.5" cy="110.5" stroke-width="22" stroke-dasharray="4,1" stroke="white" fill="none"></circle>
+      <circle cx="110.5" cy="110.5" r="110.5" stroke-width="1"
+              stroke-dasharray="none" stroke="white" fill="none"></circle>
+    </svg>
   </div>
 </div>
+
+
