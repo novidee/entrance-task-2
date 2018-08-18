@@ -5,19 +5,26 @@
 
 .filter--select {
   .filter__list {
+    display: flex;
+
     .tablet-down({
       position: absolute;
       right: 0;
-      display: none;
+      z-index: 1;
+      visibility: hidden;
       flex-direction: column;
       padding: 10px 0;
       background: white;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      opacity: 0;
+      transform: translateY(-20px) scale(0.8);
+      transition: @transition;
     });
 
     &--opened {
-      display: flex;
-      z-index: 1;
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
     }
   }
 
