@@ -278,8 +278,154 @@
 </footer>
   </div>
   
+
+<div class="modal modal--hidden heat-modal" data-type="heat">
+  <div class="modal__container" role="dialog">
+    <div class="modal__content">
+      <header class="modal__header">
+        <h3 class="modal__title">Xiaomi Warm Floor</h3>
+        <p class="modal__subtitle">Включено</p>
+        <div class="modal__side">
+            <div class="temperature-indicator ">
+  <b class="temperature-indicator__value">+23</b>
+  <img class="temperature-indicator__icon" src="images/temperature-colored.svg" alt="" />
+</div>
+
+        </div>
+      </header>
+        <div class="circular-range">
+  <div class="circular-range__info">
+    <span class="circular-range__value">+23</span>
+  </div>
+  <div class="circular-range__scale-container">
+    <div class="circular-range__arrow"></div>
+    <svg class="circular-range__scale circular-scale" width="221px" height="221px" viewBox="0 0 221 221" version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+      <circle r="99.5" cx="110.5" cy="110.5" stroke-width="22" stroke="#F5A623" fill="none"></circle>
+      <circle class="circular-scale__current" r="99.5" cx="110.5" cy="110.5" stroke-width="22" stroke="#333" fill="none"
+              stroke-dasharray="625" stroke-dashoffset="222"></circle>
+      <circle class="circular-scale__stencil" r="99.5" cx="110.5" cy="110.5" stroke-width="22" stroke-dasharray="4,1"
+              stroke="white"
+              fill="none"></circle>
+      <circle cx="110.5" cy="110.5" r="110.5" stroke-width="1"
+              stroke-dasharray="none" stroke="white" fill="none"></circle>
+    </svg>
+  </div>
+</div>
+
+
+
+    </div>
+    <footer class="modal__footer footer-modal">
+      <button class="footer-modal__btn footer-modal__btn--yellow" type="button">Применить</button>
+      <button class="footer-modal__btn" type="button">Закрыть</button>
+    </footer>
+  </div>
+</div>
   
+
+
+<div class="modal modal--hidden lighting-modal" data-type="lighting">
+  <div class="modal__container" role="dialog">
+    <div class="modal__content">
+      <header class="modal__header">
+        <h3 class="modal__title">Xiaomi Yeelight LED Smart Bulb</h3>
+        <p class="modal__subtitle">Включится в 17:00</p>
+        <div class="modal__side">
+            <img class="lighting-modal__icon" src="images/sun.svg" alt="" />
+
+        </div>
+      </header>
+        <div>
+    <div class="filter modal__filter ">
+  <span class="filter__current" tabindex="0">Все</span>
+  <ul class="filter__list">
+          <li class="filter__item">
+        <button class="button filter__button button--yellow filter__button--active">
+          Вручную
+        </button>
+      </li>
+          <li class="filter__item">
+        <button class="button filter__button ">
+          Дневной свет
+        </button>
+      </li>
+          <li class="filter__item">
+        <button class="button filter__button ">
+          Вечерний свет
+        </button>
+      </li>
+          <li class="filter__item">
+        <button class="button filter__button ">
+          Рассвет
+        </button>
+      </li>
+      </ul>
+</div>
+    <div class="lighting-range" id="lighting-range"></div>
+  </div>
+
+    </div>
+    <footer class="modal__footer footer-modal">
+      <button class="footer-modal__btn footer-modal__btn--yellow" type="button">Применить</button>
+      <button class="footer-modal__btn" type="button">Закрыть</button>
+    </footer>
+  </div>
+</div>
   
+
+
+<div class="modal modal--hidden temperature-modal" data-type="temperature">
+  <div class="modal__container" role="dialog">
+    <div class="modal__content">
+      <header class="modal__header">
+        <h3 class="modal__title">Elgato Eve Degree Connected</h3>
+        <p class="modal__subtitle">Включено</p>
+        <div class="modal__side">
+            <div class="temperature-indicator temperature-indicator--js">
+  <b class="temperature-indicator__value">+23</b>
+  <img class="temperature-indicator__icon" src="images/temperature-colored.svg" alt="" />
+</div>
+
+        </div>
+      </header>
+        <div>
+    <div class="filter modal__filter ">
+  <span class="filter__current" tabindex="0">Все</span>
+  <ul class="filter__list">
+          <li class="filter__item">
+        <button class="button filter__button button--yellow filter__button--active">
+          Вручную
+        </button>
+      </li>
+          <li class="filter__item">
+        <button class="button filter__button ">
+          Холодно
+        </button>
+      </li>
+          <li class="filter__item">
+        <button class="button filter__button ">
+          Тепло
+        </button>
+      </li>
+          <li class="filter__item">
+        <button class="button filter__button ">
+          Жарко
+        </button>
+      </li>
+      </ul>
+</div>
+    <div class="temperature-range" id="temperature-range"></div>
+  </div>
+
+    </div>
+    <footer class="modal__footer footer-modal">
+      <button class="footer-modal__btn footer-modal__btn--yellow" type="button">Применить</button>
+      <button class="footer-modal__btn" type="button">Закрыть</button>
+    </footer>
+  </div>
+</div>
   <script src="scripts/libs/tiny-slider.min.js"></script>
   <script src="scripts/libs/range-slider.min.js"></script>
   <script src="scripts/script.min.js"></script>
