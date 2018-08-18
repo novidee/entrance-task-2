@@ -212,37 +212,6 @@ function admitClick() {
   isSomeSliderMoving = false;
 }
 
-function debounce(f, ms) {
-
-  let timer = null;
-
-  return function (...args) {
-    const onComplete = () => {
-      f.apply(this, args);
-      timer = null;
-    };
-
-    if (timer) {
-      clearTimeout(timer);
-    }
-
-    timer = setTimeout(onComplete, ms);
-  };
-}
-
 function getCurrentMediaArea() {
   return getComputedStyle(document.querySelector(':root')).getPropertyValue('--media').trim();
 }
-
-function listenWindowResize(delay, onResize) {
-  let currentMediaArea = getCurrentMediaArea();
-
-  window.addEventListener('resize', debounce(() => {
-    const mediaArea = getCurrentMediaArea();
-    const mediaAreaChanged = mediaArea !== currentMediaArea;
-    currentMediaArea = mediaAreaChanged ? mediaArea : currentMediaArea;
-
-    onResize({ mediaArea, mediaAreaChanged });
-  }, delay));
-}
-

@@ -34,7 +34,7 @@ class RangeSlider {
     const track = workedContainer.querySelector(".range-slider-track");
 
     const setAttribute = (attribute, value) => {
-      Number.isFinite(value) && track.setAttribute(attribute, value > 0 ? `+${value}` : `−${Math.abs(value)}`);
+      Number.isFinite(value) && track.setAttribute(attribute, addSign(value));
     };
 
     setAttribute("data-min", min);
@@ -78,5 +78,5 @@ const temperatureRange = new RangeSlider({
 temperatureRange.init();
 
 function onTemperatureChange(value) {
-  temperatureNode.innerHTML = `${value > 0 ? `+${value}` : value}`;
+  temperatureNode.innerHTML = addSign(value);
 }

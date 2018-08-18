@@ -1,5 +1,5 @@
 .modal {
-  position: fixed;
+  position: absolute;
   z-index: 1;
   top: 0;
   left: 0;
@@ -10,6 +10,7 @@
   background: fade(@gray-dark, 50%);
   opacity: 1;
   overflow: auto;
+  touch-action: none;
   transition: @transition;
 
   .tablet-up({
@@ -21,43 +22,6 @@
     opacity: 0;
   }
 }
-
-//@keyframes pop-up {
-//  0% {
-//    top: 0;
-//    left: 0;
-//    transform: var(--start-point);
-//  }
-//
-//  100% {
-//    top: 50%;
-//    left: 50%;
-//    transform: translate(-50%, -50%);
-//  }
-//}
-//
-//.modal--opened .modal__container {
-//  animation: pop-up 0.2s cubic-bezier(0.42, 0, 0.58, 1);
-//  animation-fill-mode: forwards;
-//}
-//
-//@keyframes sss {
-//  0% {
-//    top: 50%;
-//    left: 50%;
-//    transform: translate(-50%, -50%);
-//  }
-//
-//  100% {
-//    top: 0;
-//    left: 0;
-//    transform: var(--start-point);
-//  }
-//}
-//
-//.modal--hidden .modal__container {
-//  animation: sss 0.2s cubic-bezier(0.42, 0, 0.58, 1);
-//}
 
 .modal__container {
   width: 100%;

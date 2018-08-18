@@ -1,9 +1,14 @@
+.config() {
+  @circle-inner-radius: 186px;
+}
+
 .circular-range {
   position: relative;
   display: flex;
   width: 221px;
   height: 221px;
   margin: 102px auto 81px;
+  cursor: pointer;
 
   .tablet-up({
     margin: 0 auto;
@@ -11,13 +16,15 @@
 }
 
 .circular-range__info {
+  .config();
+
   position: relative;
   z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 186px;
-  height: 186px;
+  width: @circle-inner-radius;
+  height: @circle-inner-radius;
   margin: auto;
   background: url(../images/circular-range-bg.svg);
 }
@@ -28,57 +35,10 @@
   line-height: 1.15;
 }
 
-//.circular-range__scale {
-//  position: absolute;
-//  top: -2px;
-//  left: 0;
-//  width: 100%;
-//  height: 100%;
-//  border-radius: 50%;
-//  background: linear-gradient(to right, @orange 50%, transparent 50%, @gray-dark 50%);
-//
-//  &::before {
-//    content: "";
-//    display: block;
-//    position: absolute;
-//    width: 0;
-//    height: 0;
-//    border-style: solid;
-//    border-width: 0 64px 110px;
-//    border-color: transparent transparent white;
-//    bottom: 0;
-//    left: 50%;
-//    transform: translateX(-50%);
-//  }
-//
-//  &::after {
-//    content: "";
-//    border-radius: 50%;
-//    position: absolute;
-//    left: -1px;
-//    top: -1px;
-//    width: 223px;
-//    height: 223px;
-//    background: url(../images/circular-range-scale.svg);
-//    background-repeat: no-repeat;
-//    background-size: cover;
-//  }
-//}
-//
-//.circular-range__path {
-//  width: 100%;
-//  height: 50%;
-//  border-radius: 286px 286px 0 0;
-//  background: @orange;
-//  position: absolute;
-//  top: 0;
-//  transform-origin: 50% 100%;
-//  transform: rotate(15deg);
-//}
-
-#current {
+.circular-scale__current {
   transform-origin: center;
   transform: scale(-1, 1) rotate(60deg);
+  transition: stroke-dashoffset @transition;
 }
 
 .circular-range__scale {
@@ -87,7 +47,7 @@
   left: 0;
 }
 
-.circular-range__scale-wrapper {
+.circular-range__scale-container {
   position: absolute;
   top: 0;
   left: 0;
@@ -101,10 +61,34 @@
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 0 64px 110px;
+    border-width: 0 68px 110px;
     border-color: transparent transparent white;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+  }
+}
+
+.circular-range__arrow {
+  .config();
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: @circle-inner-radius;
+  height: @circle-inner-radius;
+  z-index: 3;
+  margin-top: -@circle-inner-radius / 2;
+  margin-left: -@circle-inner-radius / 2;
+  transform: scale(-1, -1);
+  transform-origin: center;
+  transition: @transition;
+
+  &::after {
+    content: url(../images/filled-arrow.svg);
+    position: absolute;
+    left: 50%;
+    margin-left: -6px;
+    margin-top: -2px;
   }
 }
