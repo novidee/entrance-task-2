@@ -1,9 +1,11 @@
 .layout {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   transition: 0s ease 0s;
   will-change: filter;
+  overflow: auto;
+  background: red;
 
   &--with-modal {
     filter: blur(3px);
