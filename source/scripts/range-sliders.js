@@ -1,82 +1,80 @@
-// class RangeSlider {
-//   constructor({ container, onChange, min, max }) {
-//     this.workedContainer = document.querySelector(container);
-//     this.clonedContainer = this.workedContainer.cloneNode(true);
-//     this.value = 0;
-//     this.min = min;
-//     this.max = max;
-//
-//     this.onChange = onChange;
-//
-//     this.onDrag = this.onDrag.bind(this);
-//   }
-//
-//   onDrag(value) {
-//     const { min = 0, max = 100, onChange } = this;
-//
-//     const finalValue = Math.round(((value / 100) * (max - min)) + min);
-//
-//     typeof onChange === "function" && onChange(finalValue);
-//   }
-//
-//   build(vertical) {
-//     rangeSlider(this.workedContainer, {
-//       value: 0,
-//       vertical,
-//       drag: this.onDrag
-//     });
-//
-//     this.writeMarkup();
-//   }
-//
-//   writeMarkup() {
-//     const { workedContainer, min, max } = this;
-//     const track = workedContainer.querySelector(".range-slider-track");
-//
-//     const setAttribute = (attribute, value) => {
-//       Number.isFinite(value) && track.setAttribute(attribute, addSign(value));
-//     };
-//
-//     setAttribute("data-min", min);
-//     setAttribute("data-max", max);
-//   }
-//
-//   init() {
-//     this.build(getCurrentMediaArea() === "tablet-down");
-//     this.subscribeListeners();
-//   }
-//
-//   subscribeListeners() {
-//     listenWindowResize(50, ({ mediaArea, mediaAreaChanged }) => {
-//       if (!mediaAreaChanged) return;
-//
-//       this.rebuild(mediaArea === "tablet-down");
-//     });
-//   }
-//
-//   rebuild(vertical) {
-//     const parent = this.workedContainer.parentNode;
-//     parent.removeChild(this.workedContainer);
-//     this.workedContainer = this.clonedContainer.cloneNode(true);
-//     parent.appendChild(this.workedContainer);
-//
-//     this.build(vertical);
-//   }
-// }
-//
-// const lightingRange = new RangeSlider({ container: "#lighting-range" });
-// lightingRange.init();
-//
-// const temperatureNode = document.querySelector(".temperature-indicator--js .temperature-indicator__value");
-//
-// const temperatureRange = new RangeSlider({
-//   container: "#temperature-range",
-//   onChange: onTemperatureChange,
-//   min: -10,
-//   max: 30
-// });
-// temperatureRange.init();
-//
-// function onTemperatureChange(value) {
-//   temperatureNode.innerHTML = addSign(value);
-// }
+class RangeSlider {
+  constructor({ container, start, min = 0, max = 100, onChange }) {
+    this.container = document.querySelector(container);
+    this.value = start;
+    this.min = min;
+    this.max = max;
+
+    this.changeHandler = onChange;
+
+    this.onChange = this.onChange.bind(this);
+  }
+
+  build(vertical) {
+    const { container, value, min, max } = this;
+
+    noUiSlider.create(container, {
+      start: value,
+      direction: vertical ? `rtl` : `ltr`,
+      step: 1,
+      range: { min, max },
+      orientation: vertical ? `vertical` : `horizontal`
+    });
+
+    container.noUiSlider.on(`update`, this.onChange);
+  }
+
+  init() {
+    this.build(getCurrentMediaArea() === `tablet-down`);
+    this.resizeHandle();
+  }
+
+  rebuild(vertical) {
+    const { container } = this;
+    container.noUiSlider.destroy();
+
+    this.build(vertical);
+  }
+
+  resizeHandle() {
+    listenWindowResize(50, ({ mediaArea, mediaAreaChanged }) => {
+      if (!mediaAreaChanged) return;
+
+      this.rebuild(mediaArea === `tablet-down`);
+    });
+  }
+
+  onChange(values, handle) {
+    const { changeHandler, min, max, container } = this;
+    const value = Number(values[handle]);
+
+    this.value = value;
+    typeof changeHandler === `function` && changeHandler(value);
+
+    const setAttribute = (attribute, value) => {
+      Number.isFinite(value) && container.setAttribute(attribute, addSign(value));
+    };
+
+    setAttribute(`data-min`, min);
+    setAttribute(`data-max`, max);
+  }
+}
+
+const temperatureNode = document.querySelector(`.temperature-indicator--js .temperature-indicator__value`);
+
+const temperatureRange = new RangeSlider({
+  container: `#temperature-range`,
+  start: 23,
+  min: -10,
+  max: 30,
+  onChange: value => temperatureNode.innerHTML = addSign(value)
+});
+temperatureRange.init();
+
+
+const lightingRange = new RangeSlider({
+  container: `#lighting-range`,
+  start: 30
+});
+
+lightingRange.init();

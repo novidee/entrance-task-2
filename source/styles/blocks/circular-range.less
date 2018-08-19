@@ -39,7 +39,7 @@
 .circular-scale__current {
   transform-origin: center;
   transform: scale(-1, 1) rotate(60deg);
-  transition: stroke-dashoffset @transition;
+  transition: stroke-dashoffset 0.1s ease;
 }
 
 .circular-range__scale {
@@ -83,7 +83,7 @@
   margin-left: -@circle-inner-radius / 2;
   transform: scale(-1, -1);
   transform-origin: center;
-  transition: @transition;
+  transition: 0.1s ease;
 
   &::after {
     content: url(../images/filled-arrow.svg);

@@ -25,6 +25,7 @@ gulp.task(`build`, () => {
     `images`,
     `templates`,
     `styles`,
+    `vendor`,
     `scripts`,
     `copy`
   );
@@ -78,6 +79,13 @@ gulp.task(`scripts`, () => {
     .pipe(uglify())
     .pipe(rename(`script.min.js`))
     .pipe(gulp.dest(`${BUILD_PATH}/scripts`));
+});
+
+gulp.task(`vendor`, () => {
+  return gulp
+    .src(`${SOURCE_PATH}/scripts/vendor/*.js`)
+    .pipe(concat(`vendor.min.js`))
+    .pipe(gulp.dest(`${BUILD_PATH}/scripts`))
 });
 
 gulp.task(`templates`, () => {

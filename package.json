@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "normalize.css": "8.0.0",
-    "tiny-slider": "2.8.4"
+    "tiny-slider": "2.8.4",
+    "nouislider": "11.1.0"
   },
   "devDependencies": {
     "gulp": "3.9.1",
