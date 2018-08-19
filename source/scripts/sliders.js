@@ -229,7 +229,8 @@ class ModalFilterSlider {
       container,
       controls: false,
       autoWidth: true,
-      gutter: 10
+      gutter: 10,
+      items: 5
     });
   }
 

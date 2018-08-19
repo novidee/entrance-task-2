@@ -1,9 +1,9 @@
 class CircularRange {
   constructor({ onChange }) {
-    this.node = document.querySelector(".circular-range");
-    this.current = this.node.querySelector(".circular-scale__current");
-    this.arrow = this.node.querySelector(".circular-range__arrow");
-    this.valueNode = this.node.querySelector(".circular-range__value");
+    this.node = document.querySelector(`.circular-range`);
+    this.current = this.node.querySelector(`.circular-scale__current`);
+    this.arrow = this.node.querySelector(`.circular-range__arrow`);
+    this.valueNode = this.node.querySelector(`.circular-range__value`);
 
     this.radius = 99.5;
     this.circumference = this.radius * 2 * Math.PI;
@@ -43,7 +43,7 @@ class CircularRange {
 
   getXY(event) {
     let eventData = event;
-    if (event.type.indexOf("touch") !== -1) eventData = (event.originalEvent || event).changedTouches[0];
+    if (event.type.indexOf(`touch`) !== -1) eventData = (event.originalEvent || event).changedTouches[0];
 
     return {
       x: eventData.pageX,
@@ -63,9 +63,9 @@ class CircularRange {
   subscribeListeners() {
     const { node } = this;
 
-    node.addEventListener("click", this.handleChange);
-    addMultipleEventListeners(node, ["mousedown", "touchstart"], this.handleDown);
-    addMultipleEventListeners(document, ["mouseup", "touchend", "touchcancel"], this.handleUp);
+    node.addEventListener(`click`, this.handleChange);
+    addMultipleEventListeners(node, [`mousedown`, `touchstart`], this.handleDown);
+    addMultipleEventListeners(document, [`mouseup`, `touchend`, `touchcancel`], this.handleUp);
   }
 
   create() {
@@ -122,17 +122,17 @@ class CircularRange {
   }
 
   handleDown() {
-    addMultipleEventListeners(document, ["mousemove", "touchmove"], this.handleChange);
-    this.node.addEventListener("touchmove", this.preventDefault, { capture: true, passive: false });
+    addMultipleEventListeners(document, [`mousemove`, `touchmove`], this.handleChange);
+    this.node.addEventListener(`touchmove`, this.preventDefault, { capture: true, passive: false });
   }
 
   handleUp() {
-    removeMultipleEventListeners(document, ["mousemove", "touchmove"], this.handleChange);
-    this.node.removeEventListener("touchmove", this.preventDefault);
+    removeMultipleEventListeners(document, [`mousemove`, `touchmove`], this.handleChange);
+    this.node.removeEventListener(`touchmove`, this.preventDefault);
   }
 }
 
-const temperatureIndicator = document.querySelector(".temperature-indicator__value");
+const temperatureIndicator = document.querySelector(`.temperature-indicator__value`);
 const circularRange = new CircularRange({
   onChange: value => temperatureIndicator.innerHTML = addSign(value)
 });
