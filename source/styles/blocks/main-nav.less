@@ -58,14 +58,18 @@
 .main-nav__toggler {
   position: relative;
   margin-left: auto;
-  overflow: hidden;
-  width: 18px;
-  height: 18px;
+  margin-right: -5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 26px;
+  height: 26px;
   padding: 0;
   border: none;
   background: white;
   cursor: pointer;
   transform: scale(0.9);
+  outline-offset: 4px;
 
   .small-tablet-up({
     display: none;
@@ -75,7 +79,7 @@
   &::before {
     position: absolute;
     display: block;
-    width: 100%;
+    width: 18px;
     height: 3px;
     background: @gray-dark;
     border-radius: 2px;
@@ -84,7 +88,7 @@
   }
 
   &::after {
-    top: 3px;
+    top: 6px;
     box-shadow: 0 6px 0 0 black, 0 12px 0 0 @gray-dark;
   }
 }

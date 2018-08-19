@@ -51,5 +51,5 @@ function animateModal(event) {
   const resultLeft = left + (width / 2) - centerX;
   const resultTop = top + (height / 2) - centerY;
 
-  document.documentElement.style.setProperty('--start-point', `translate(${resultLeft}px, ${resultTop}px) scale(0.2)`);
+  document.documentElement.style.setProperty('--modal-start-transform', `translate(${resultLeft}px, ${resultTop}px) scale(0.2)`);
 }
