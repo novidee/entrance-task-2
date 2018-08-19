@@ -201,8 +201,26 @@ class DevicesSlider extends BaseSlider {
   }
 }
 
+class ModalFilterSlider {
+  constructor(container) {
+    this.options = Object.assign({}, DEFAULT_CONFIG, {
+      container,
+      controls: false,
+      autoWidth: true,
+      gutter: 10
+    });
+  }
+
+  create() {
+    this.sliderInfo = tns(this.options);
+  }
+}
+
 const devicesSlider = new DevicesSlider();
 devicesSlider.create();
+
+const modalFilters = Array.from(document.querySelectorAll(`.modal__filter .filter__list`));
+modalFilters.map(node => new ModalFilterSlider(node)).forEach(slider => slider.create());
 
 function preventClick() {
   isSomeSliderMoving = true;
