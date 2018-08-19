@@ -1,7 +1,7 @@
 const MEDIA_AREA = {
-  tabletDown: "tablet-down",
-  tabletUp: "tablet-up",
-  desktopHDUp: "desktop-hd-up"
+  tabletDown: `tablet-down`,
+  tabletUp: `tablet-up`,
+  desktopHDUp: `desktop-hd-up`
 };
 
 const DEFAULT_CONFIG = {
@@ -12,24 +12,24 @@ const DEFAULT_CONFIG = {
   swipeAngle: false
 };
 
-const prevArrow = "<img class='tns-controls-prev' src='images/arrow-left.svg' alt=''/>";
-const nextArrow = "<img class='tns-controls-next' src='images/arrow-left.svg' alt=''/>";
+const prevArrow = `<img class=`tns-controls-prev` src=`images/arrow-left.svg` alt=``/>`;
+const nextArrow = `<img class=`tns-controls-next` src=`images/arrow-left.svg` alt=``/>`;
 
 class BaseSlider {
   toggleListeners(action) {
-    this.sliderInfo.events[action]("dragMove", preventClick);
-    this.sliderInfo.events[action]("touchMove", preventClick);
+    this.sliderInfo.events[action](`dragMove`, preventClick);
+    this.sliderInfo.events[action](`touchMove`, preventClick);
 
-    this.sliderInfo.events[action]("dragEnd", admitClick);
-    this.sliderInfo.events[action]("touchEnd", admitClick);
+    this.sliderInfo.events[action](`dragEnd`, admitClick);
+    this.sliderInfo.events[action](`touchEnd`, admitClick);
   }
 
   subscribe() {
-    this.toggleListeners("on");
+    this.toggleListeners(`on`);
   }
 
   unsubscribe() {
-    this.toggleListeners("off");
+    this.toggleListeners(`off`);
   }
 }
 
@@ -38,11 +38,11 @@ class ScenariosSlider extends BaseSlider {
     super();
 
     this.options = Object.assign({}, DEFAULT_CONFIG, {
-      container: ".scenarios__list",
+      container: `.scenarios__list`,
       fixedWidth: 200,
       gutter: 15,
       controlsText: [prevArrow, nextArrow],
-      slideBy: "page",
+      slideBy: `page`,
       responsive: {
         320: {
           controls: false
@@ -65,7 +65,7 @@ class ScenariosSlider extends BaseSlider {
       [MEDIA_AREA.desktopHDUp]: 9
     };
 
-    this.items = Array.from(document.querySelectorAll(".scenarios__item"));
+    this.items = Array.from(document.querySelectorAll(`.scenarios__item`));
   }
 
   build() {
@@ -94,7 +94,7 @@ class ScenariosSlider extends BaseSlider {
   }
 
   prepareMarkup(cardsPerSlide) {
-    const list = document.querySelector(".scenarios__list");
+    const list = document.querySelector(`.scenarios__list`);
     const workedItems = this.items.slice();
 
     const lis = [];
@@ -108,10 +108,10 @@ class ScenariosSlider extends BaseSlider {
     const nodes = lis.map(slide => {
       const inner = slide.length === 1
         ? slide[0].innerHTML
-        : `<ul class="slide-list">${slide.map(s => `<li class="slide-list__item">${s.innerHTML}</li>`).join('')}</ul>`;
+        : `<ul class=`slide-list`>${slide.map(s => `<li class=`slide-list__item`>${s.innerHTML}</li>`).join(``)}</ul>`;
 
-      return `<li class="scenarios__item">${inner}</li>`
-    }).join('');
+      return `<li class=`scenarios__item`>${inner}</li>`
+    }).join(``);
 
     list.innerHTML = nodes;
   }
@@ -124,7 +124,7 @@ class InfoDevicesSlider extends BaseSlider {
   constructor() {
     super();
 
-    const container = ".info__devices-list";
+    const container = `.info__devices-list`;
 
     this.options = {
       horizontal: Object.assign({}, DEFAULT_CONFIG, {
@@ -138,7 +138,7 @@ class InfoDevicesSlider extends BaseSlider {
         controls: false,
         items: 2,
         gutter: 15,
-        axis: "vertical",
+        axis: `vertical`,
         edgePadding: 20
       })
     };
@@ -146,12 +146,27 @@ class InfoDevicesSlider extends BaseSlider {
 
   build(type) {
     this.sliderInfo = tns(this.options[type]);
+    this.toggleArrow(this.sliderInfo);
 
+    this.subscribe();
+  }
+
+  subscribe() {
     super.subscribe();
+
+    this.sliderInfo.events.on(`dragEnd`, this.toggleArrow);
+    this.sliderInfo.events.on(`touchEnd`, this.toggleArrow);
+  }
+
+  unsubscribe() {
+    super.unsubscribe();
+
+    this.sliderInfo.events.off(`dragEnd`, this.toggleArrow);
+    this.sliderInfo.events.off(`touchEnd`, this.toggleArrow);
   }
 
   destroy() {
-    super.unsubscribe();
+    this.unsubscribe();
 
     this.sliderInfo.destroy();
   }
@@ -160,12 +175,20 @@ class InfoDevicesSlider extends BaseSlider {
     if (!mediaAreaChanged) return;
 
     this.destroy();
-    this.build(mediaArea === MEDIA_AREA.desktopHDUp ? "vertical" : "horizontal");
+    this.build(mediaArea === MEDIA_AREA.desktopHDUp ? `vertical` : `horizontal`);
   }
 
   create() {
-    this.build(getCurrentMediaArea() === MEDIA_AREA.desktopHDUp ? "vertical" : "horizontal");
+    this.build(getCurrentMediaArea() === MEDIA_AREA.desktopHDUp ? `vertical` : `horizontal`);
     listenWindowResize(50, info => this.rebuild(info));
+  }
+
+  toggleArrow(info) {
+    const dd = document.querySelector(`.info__list-arrow`);
+
+    const defaultTransform = `translate3d(0px, 0px, 0px)`;
+    if (info.container.style.transform !== defaultTransform) dd.classList.add(`info__list-arrow--hidden`);
+    else dd.classList.remove(`info__list-arrow--hidden`);
   }
 }
 
@@ -179,11 +202,11 @@ class DevicesSlider extends BaseSlider {
     super();
 
     this.options = Object.assign({}, DEFAULT_CONFIG, {
-      container: ".devices__list",
+      container: `.devices__list`,
       fixedWidth: 200,
       gutter: 15,
       controlsText: [prevArrow, nextArrow],
-      slideBy: "page",
+      slideBy: `page`,
       responsive: {
         320: {
           controls: false
@@ -231,5 +254,5 @@ function admitClick() {
 }
 
 function getCurrentMediaArea() {
-  return getComputedStyle(document.querySelector(':root')).getPropertyValue('--media').trim();
+  return getComputedStyle(document.querySelector(`:root`)).getPropertyValue(`--media`).trim();
 }

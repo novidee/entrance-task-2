@@ -71,12 +71,31 @@
 }
 
 .info__devices {
+  position: relative;
+
   .tablet-down({
     width: 100%;
   });
 
   .tns-inner {
     height: 100% !important;
+  }
+}
+
+.info__list-arrow {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: @transition;
+
+  .desktop-hd-down({
+    display: none;
+  });
+
+  &--hidden {
+    opacity: 0;
+    visibility: hidden;
   }
 }
 
