@@ -17,7 +17,7 @@ class CircularRange {
 
     this.onChange = onChange;
 
-    this.handleChange = throttle(this.handleChange.bind(this), 100);
+    this.handleChange = throttle(this.handleChange.bind(this), 50);
     this.handleDown = this.handleDown.bind(this);
     this.handleUp = this.handleUp.bind(this);
   }
@@ -117,12 +117,18 @@ class CircularRange {
     this.onChange(resultValue);
   }
 
+  preventDefault(event) {
+    event.preventDefault();
+  }
+
   handleDown() {
     addMultipleEventListeners(document, ["mousemove", "touchmove"], this.handleChange);
+    this.node.addEventListener("touchmove", this.preventDefault, { capture: true, passive: false });
   }
 
   handleUp() {
     removeMultipleEventListeners(document, ["mousemove", "touchmove"], this.handleChange);
+    this.node.removeEventListener("touchmove", this.preventDefault);
   }
 }
 
