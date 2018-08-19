@@ -12,8 +12,8 @@ const DEFAULT_CONFIG = {
   swipeAngle: false
 };
 
-const prevArrow = `<img class=`tns-controls-prev` src=`images/arrow-left.svg` alt=``/>`;
-const nextArrow = `<img class=`tns-controls-next` src=`images/arrow-left.svg` alt=``/>`;
+const prevArrow = `<img class="tns-controls-prev" src="images/arrow-left.svg" alt=""/>`;
+const nextArrow = `<img class="tns-controls-next" src="images/arrow-left.svg" alt=""/>`;
 
 class BaseSlider {
   toggleListeners(action) {
@@ -108,9 +108,9 @@ class ScenariosSlider extends BaseSlider {
     const nodes = lis.map(slide => {
       const inner = slide.length === 1
         ? slide[0].innerHTML
-        : `<ul class=`slide-list`>${slide.map(s => `<li class=`slide-list__item`>${s.innerHTML}</li>`).join(``)}</ul>`;
+        : `<ul class="slide-list">${slide.map(s => `<li class="slide-list__item">${s.innerHTML}</li>`).join("")}</ul>`;
 
-      return `<li class=`scenarios__item`>${inner}</li>`
+      return `<li class="scenarios__item">${inner}</li>`
     }).join(``);
 
     list.innerHTML = nodes;
@@ -146,7 +146,6 @@ class InfoDevicesSlider extends BaseSlider {
 
   build(type) {
     this.sliderInfo = tns(this.options[type]);
-    this.toggleArrow(this.sliderInfo);
 
     this.subscribe();
   }
@@ -184,11 +183,11 @@ class InfoDevicesSlider extends BaseSlider {
   }
 
   toggleArrow(info) {
-    const dd = document.querySelector(`.info__list-arrow`);
-
+    const arrow = document.querySelector(`.info__list-arrow`);
     const defaultTransform = `translate3d(0px, 0px, 0px)`;
-    if (info.container.style.transform !== defaultTransform) dd.classList.add(`info__list-arrow--hidden`);
-    else dd.classList.remove(`info__list-arrow--hidden`);
+
+    if (info.container.style.transform !== defaultTransform) arrow.classList.add(`info__list-arrow--hidden`);
+    else arrow.classList.remove(`info__list-arrow--hidden`);
   }
 }
 

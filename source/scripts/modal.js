@@ -30,10 +30,26 @@ function onModalToggle(event, type) {
   event.preventDefault();
 
   const hiddenClass = `modal--hidden`;
+  const hasModalOpen = modals[type].classList.contains(hiddenClass);
+
+  if (hasModalOpen) animateModal(event);
 
   document.body.classList.toggle(`no-overflow`);
   modals[type].classList.toggle(hiddenClass);
   modals[type].classList.toggle(`modal--opened`);
 
   layout.classList.toggle(`layout--with-modal`);
+}
+
+function animateModal(event) {
+  const { top, left, width, height } = event.target.closest(`.card`).getBoundingClientRect();
+  const { clientWidth, clientHeight } = document.documentElement;
+
+  const centerX = clientWidth / 2;
+  const centerY = clientHeight / 2;
+
+  const resultLeft = left + (width / 2) - centerX;
+  const resultTop = top + (height / 2) - centerY;
+
+  document.documentElement.style.setProperty('--start-point', `translate(${resultLeft}px, ${resultTop}px) scale(0.2)`);
 }

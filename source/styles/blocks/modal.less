@@ -27,6 +27,7 @@
 .modal__container {
   width: 100%;
   margin-bottom: auto;
+  will-change: transform;
 
   .small-tablet-up({
     max-width: 400px;
@@ -38,6 +39,15 @@
     width: 630px;
     margin: auto;
   });
+}
+
+.modal--opened .modal__container {
+  animation: pop-in 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.modal--hidden .modal__container {
+  animation: pop-out 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+  animation-fill-mode: forwards;
 }
 
 .modal__header {
